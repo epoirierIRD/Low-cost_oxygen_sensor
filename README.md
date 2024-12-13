@@ -10,3 +10,7 @@ Oxigeno: 0.01
 Temperatura: 17.20
 Oxigeno: 0.02
 This is the first problem to fix.
+
+
+13/12/2024 
+we are now able to produce the CRC code (hex) ending a modbus command line. It is a 4 digits code XX XX in hexadecimal with low-byte first. It is done thanks to the python code provided by chatgpt.
