@@ -19,7 +19,7 @@ To do: ligne 113 du code tester l'interrogation de nouvelles adresses de registr
   result = node.readHoldingRegisters(0x0000,4);
   changer l'adresse 0x0000 avec d'autres adresses pour comprendre comment marche la fonction getResponseBuffer
 
-  # estrait du code de la librairy
+  # extrait du code de la librairy
   https://github.com/jecrespo/RS485_Modbus_Arduino/blob/master/ModBusMaster485/ModbusMaster485.h#L104
   
   @ingroup constant
