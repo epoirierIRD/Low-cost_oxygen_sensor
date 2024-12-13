@@ -14,3 +14,20 @@ This is the first problem to fix.
 
 13/12/2024 
 we are now able to produce the CRC code (hex) ending a modbus command line. It is a 4 digits code XX XX in hexadecimal with low-byte first. It is done thanks to the python code provided by chatgpt.
+
+To do: ligne 113 du code tester l'interrogation de nouvelles adresses de registres pour voir ce que ça donne 
+  result = node.readHoldingRegisters(0x0000,4);
+  changer l'adresse 0x0000 avec d'autres adresses pour comprendre comment marche la fonction getResponseBuffer
+
+  # estrait du code de la librairy
+  https://github.com/jecrespo/RS485_Modbus_Arduino/blob/master/ModBusMaster485/ModbusMaster485.h#L104
+  
+  @ingroup constant
+    */
+    static const uint8_t ku8MBInvalidCRC                 = 0xE3;
+    
+    uint16_t getResponseBuffer(uint8_t);
+    void     clearResponseBuffer();
+    uint8_t  setTransmitBuffer(uint8_t, uint16_t);
+    void     clearTransmitBuffer();
+    
