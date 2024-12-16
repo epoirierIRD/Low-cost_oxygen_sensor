@@ -37,7 +37,7 @@ To do: ligne 113 du code tester l'interrogation de nouvelles adresses de registr
   we then adapted it to adress 0x0000 of the probe and the register 0x02 for T°C and 0x03 for the DO. DO values remain 0.01 and perhaps this is due to a bad calibration. We will try to sort that out.
   Connecting the probe and receiving data using modbus protocol and linux machine. Use mbpoll tool and run the following command as a first test:
   */
-  mbpoll -a 55 -b 9600 -t 2 -r 3 -c 1 -d 8 -P none /dev/ttyUSB0;
+  mbpoll -a 55 -b 9600 -t 4 -r 3 -c 1 -d 8 -P none /dev/ttyUSB0;
 
   Careful: run 
   lsusb
