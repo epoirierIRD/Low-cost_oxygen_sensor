@@ -30,4 +30,8 @@ To do: ligne 113 du code tester l'interrogation de nouvelles adresses de registr
     void     clearResponseBuffer();
     uint8_t  setTransmitBuffer(uint8_t, uint16_t);
     void     clearTransmitBuffer();
-    
+
+  16/12/2024
+  To be able to communicate via the PC and windows to the probe, you must load the passerail.ino code on the device and then open modbus tester program to send commandes. Today we managed to get a code on this page
+  http://4-20ma.io/ModbusMaster/examples_2_r_s485__half_duplex_2_r_s485__half_duplex_8ino-example.html#a7 
+  we then adapted it to adress 0x0000 of the probe and the register 0x02 for T°C and 0x03 for the DO. DO values remain 0.01 and perhaps this is due to a bad calibration. We will try to sort that out.
