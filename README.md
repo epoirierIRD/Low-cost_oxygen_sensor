@@ -59,3 +59,8 @@ Explanation of Each Parameter
     -P none: No parity.
     /dev/ttyUSB0: Specifies the serial port.
 
+17/12/2024
+If you want to get the ID number of your device which accordinf to the manual is at the adress 0x2000 (42001), first step is to convert 0x2000 form hexadcimal to decimal:
+that gives 8192dec.
+Then use this command 
+mbpoll -a 55 -m rtu -b 9600 -d 8 -s 1 -P none -o 1 -r 8192 -0 -t 4 /dev/ttyUSB0
