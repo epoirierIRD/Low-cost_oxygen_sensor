@@ -64,3 +64,11 @@ If you want to get the ID number of your device which accordinf to the manual is
 that gives 8192dec.
 Then use this command 
 mbpoll -a 55 -m rtu -b 9600 -d 8 -s 1 -P none -o 1 -r 8192 -0 -t 4 /dev/ttyUSB0
+
+19/12/2024
+We have managed to send a modbus command to change the device ID woth modbustester.exe. Modbus Poll soft for windows is interesting to see the hexadecimal command sent but we have not managed to send any command with this soft. No Rx message is visible in the communication window.
+Be careful, you must write the address of the buffer you want to read/write in decimal format in modbus-tester.
+
+Today, we also managed to identify the list of addresses available using the scan addresses tool from modbus poll soft. We also managed to calibrate the temperature sensor using modbus tester and sending 172 to address 0x1000 which means force the temp sensor to 17.2 °C.
+We also managed to calibrate the DO sensor doing the slope protocol. First immerse the probe 10 cm away from the bottom in a big becher filled with tap water + sodium sulphite anhydrous to kill all dissolved oxygen an the send value 0 to address 0x1001. Second step (order of steps is important), immerse the probre 10 cm away from bottom in becher filled with tap water and perform a 100% calibration by sending 0 to address 0x1003.
+
