@@ -1,4 +1,4 @@
-# Low-cost_oxygen_sensor
+# Low-cost DO oxygen sensor from SEEED Studio, Senscap
 
 This project starts with a first objective: to interface a SEEED studio low-cost oxygen probe and verify its metrologic specs. It means calibrate the probe and check its performances regarding the manufacturer specs and a referenc
 optode on at least 3 levels: 0% stauration O2, 50% and 100%.
