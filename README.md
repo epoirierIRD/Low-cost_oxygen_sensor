@@ -141,6 +141,7 @@ However, you miss the modbus command function. Quit Node-RED and execute this co
 ```Bash
 npm install node-red-contrib-modbus
 ```
+Check the page for modbus in Node-red: https://flows.nodered.org/node/node-red-contrib-modbus
 Start again your node-RED and begin creating your first flow.
 
 
