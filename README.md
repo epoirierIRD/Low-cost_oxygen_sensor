@@ -143,6 +143,9 @@ npm install node-red-contrib-modbus
 ```
 Check the page for modbus package installation in Node-red: https://flows.nodered.org/node/node-red-contrib-modbus
 Start again your node-RED and begin creating your first flow.
+It seems that the modbus nodes don't show up in the Palette. So on your web interface go to Manage Palette/Palette/Install
+and choose: node-red-contrib-modbus
+Check this page for more details: https://flowfuse.com/node-red/protocol/modbus/
 
 
 
