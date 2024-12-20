@@ -129,7 +129,7 @@ nvm install v18
 ```
 You are now goo to run node red command:
 ```Bash
-node red
+node-red
 ```
 Your node red is now running in your terminal.
 Supposing that your are working locally on your laptop for this first test, go to your web browser and type http://localhost:1880 to access the node red editor.
