@@ -93,5 +93,61 @@ We also managed to calibrate the DO sensor doing the slope protocol.
 - Second step **(order of steps is important)**, immerse the probre 10 cm away from bottom in becher filled with tap water and perform a 100% calibration by sending 0 to address 0x1003.
 **Finally, the DO values outputted in arduino serial monitor remain at 0.01 which is not satisfying. We must dig into that. We suspect a dysfunctionning of the DO readings of the probe. To be examinated after the holidays.**
 
-## 20/12/2024, 
+## 20/12/2024, trying to install node-red to read data from modbus device
+I got help from RTCE forum regarding this task.
+Check the topic here: https://rtce.forum.inrae.fr/t/communication-rs485-modbus-rtu-seeed-studio-dissolved-oxygen-probe/319/4?u=poirier_etienne1
+Emmanuel Landrivon recommends using node-red (open-source) to communicate with the DO Probe through a USB<->RS485 adapter. Node-red is a tool to produce code via a graphic interface. Supposed to be easier for beginners like me. So I will try using node red to read/write the buffers of my DO Probe.
+Eventually I will interface my device via node red to an ESP32 firebeetle via Tasmota (+ module RS485) :https://tasmota.github.io/docs/Modbus-Bridge/
+So that's the plan, let's dive into it:
+
+###Installing node red on linux/debian/ubuntu:
+- First install nvm (Node version manager). nvm is a tool that can help manage Node.js installations.
+  Check this page: https://nodejs.org/en/download/package-manager/
+  
+```Bash
+# installs nvm (Node Version Manager). 
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
+# download and install Node.js (you may need to restart the terminal)
+nvm install 22
+
+# verifies the right Node.js version is in the environment
+node -v # should print `v22.12.0`
+
+# verifies the right npm version is in the environment
+npm -v # should print `10.9.0`
+```
+Don't forget now to source the bashrc file to be able to activate nvm command
+
+```Bash
+source /home/epoirier/.bashrc
+```
+The previous installation of nvw installed v12 version which is not enough. Upgrade to nvm v18 version (at least, v20 available too) to be able to run node red.
+
+```Bash
+nvm install v18
+```
+You are now goo to run node red command:
+```Bash
+node red
+```
+Your node red is now running in your terminal.
+Supposing that your are working locally on your laptop for this first test, go to your web browser and type http://localhost:1880 to access the node red editor.
+You will get this page in your web browser.
+
+insert image page here.
+
+However, you miss the modbus command function. Quit Node-RED and execute this command in your terminal:
+```Bash
+npm install node-red-contrib-modbus
+```
+Start again your node-RED and begin creating your first flow.
+
+
+
+
+Please check-out this page regarding node red and nvm installation on linux debian: 
+https://nodered.org/docs/getting-started/local
+https://nodered.org/docs/faq/node-versions
+
 
