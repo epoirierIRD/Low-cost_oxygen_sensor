@@ -173,7 +173,7 @@ Your node red is now running in your terminal.
 Supposing that your are working locally on your laptop for this first test, go to your web browser and type http://localhost:1880 to access the node red editor.
 You will get this page in your web browser.
 
-![screenshot](imageFolder/screenshot.png)
+![screenshot](Imagefolder/node-red.png)
 
 However, you miss the modbus command function. Quit Node-RED and execute this command in your terminal:
 ```Bash
