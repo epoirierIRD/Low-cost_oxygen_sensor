@@ -175,7 +175,7 @@ You will get this page in your web browser.
 
 ![screenshot](Imagefolder/node-red.png)
 
-However, you miss the modbus command function. Quit Node-RED and execute this command in your terminal:
+However, if you miss the modbus command function on the left panel. Quit Node-RED and execute this command in your terminal:
 ```Bash
 npm install node-red-contrib-modbus
 ```
