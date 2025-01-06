@@ -133,6 +133,41 @@ node-red
 ```
 If at this step, it says ''node-red function nor found'', it means perhaps that you did not have npm and nvm installed, so check that they are installed and run again the code block ''Installing node red on linux/debian/ubuntu:''
 
+1. Verify Node.js Installation
+
+Node-RED depends on Node.js. Check if Node.js is installed and its version:
+```Bash
+node -v
+```
+If you see an error or the version is below the required version (typically Node.js 14.x or higher), you’ll need to install or update Node.js.
+
+Install Node.js (Latest LTS version):
+```Bash
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+Verify npm:
+```Bash
+npm -v
+```
+
+If npm is missing, install it:
+```Bash
+sudo apt install npm
+```
+
+2. Install Node-RED
+
+Once Node.js and npm are set up, install Node-RED globally using npm:
+```Bash
+sudo npm install -g --unsafe-perm node-red
+```
+
+Check if Node-RED was installed:
+```Bash
+node-red -v
+```
 
 Your node red is now running in your terminal.
 Supposing that your are working locally on your laptop for this first test, go to your web browser and type http://localhost:1880 to access the node red editor.
