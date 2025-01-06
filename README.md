@@ -131,6 +131,9 @@ You are now goo to run node red command:
 ```Bash
 node-red
 ```
+If at this step, it says ''node-red function nor found'', it means perhaps that you did not have npm and nvm installed, so check that they are installed and run again the code block ''Installing node red on linux/debian/ubuntu:''
+
+
 Your node red is now running in your terminal.
 Supposing that your are working locally on your laptop for this first test, go to your web browser and type http://localhost:1880 to access the node red editor.
 You will get this page in your web browser.
