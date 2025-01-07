@@ -192,4 +192,55 @@ Please check-out this page regarding node red and nvm installation on linux debi
 https://nodered.org/docs/getting-started/local
 https://nodered.org/docs/faq/node-versions
 
+## 07/01/2025, node-red working to read data from the sensor
+
+Working on node-red the 20/12/2024, 06/01 and 07/01/2025, I managed to get it working on my laptop (running Ubuntu) and my desk computer running ubuntu too.
+Below is the picture of my first flow (flux-1.json) to be found in the github files and user interface created with it.
+
+![screenshot](Imagefolder/flux-1.png)
+![screenshot](Imagefolder/flux-1_ui.png)
+
+
+However I had to face seberal problems which I will try to present her.
+
+### Insert an image in node-red dashboard (or ui, standing for user interface)
+
+If you want to insert an image in node-red dashboard as per the image of my probe, you must first do that:
+```Bash
+# go to the location of your node-red server
+cd ~/.node-red
+# create a public directory to put your images
+mkdir ~/.node-red/public
+# put your image in /public
+cp mylocation/image.jpg ~/.node-red/public
+# edit the settings.js file to tell node-red where you store your images
+vim  ~/.node-red/settings.js
+```
+In this file settings.js, go to this line
+```js
+// httpStatic: '/home/nol/node-red-static/', //single static source
+```
+Add a new line below telling that your image will be in public
+```js
+httpStatic: require('path').join(__dirname, 'public'),
+```
+Restart node-red.
+
+### Solving a cyclic dependency issue in Node.js
+
+If for some reasons your nodes modbus read become stuck on waiting status. Also when running red-node on your console, you have this error message:
+```bash
+Error: Circular config node dependency detected: modbus-client
+    at Flow.start (/usr/local/lib/node_modules/node-red/node_modules/@node-red/runtime/lib/flows/Flow.js:227:43)
+```
+You won't go anywhere else until you solve the issue on the modbus-client. My solution is to remove the old client and create a new one.
+
+### Modbus reader node reconnecting (status yellow)
+
+Don't use the same Poll rate for each modbus read node. It may create a connection issue to poll data at the same time. Choose diffrent rates such as 1s, 2s, 3s, etc...
+
+
+
+
+
 
