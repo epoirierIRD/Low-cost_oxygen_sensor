@@ -244,7 +244,7 @@ Don't use the same Poll rate for each modbus read node. It may create a connecti
 I managed to finish flow 2 integrating the write registers nodes to be able to calibrate the probe.
 I have done a gross calibration and well try now to test the accuracy of the probe.
 Flow 2 is to be found under node-red folder and is nammed flow2-do_probe.json.
-![screenshot](Imagefolder/flux-2_ui.png)
+![screenshot](Imagefolder/flow-2_ui.png)
 
 
 
