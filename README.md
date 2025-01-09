@@ -4,6 +4,11 @@ This project starts with a first objective: to interface a SEEED studio low-cost
 optode on at least 3 levels: 0% stauration O2, 50% and 100%.
 
 - First step is to interface this RS485 probe to a computer and get decent data
+- Post-it for connecting probe cables on UART gravity module DFR0845
+* Probe red cable: 12V
+* Probe black cable : GND
+* Probe blue cable : A
+* Probe withe cable : B
   
 ## 12/12/202, problem found bad DO reading output in arduino serial monitor
 This the problem we face:
