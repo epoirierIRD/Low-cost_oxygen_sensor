@@ -246,7 +246,19 @@ I have done a gross calibration and well try now to test the accuracy of the pro
 Flow 2 is to be found under node-red folder and is nammed flow2-do_probe.json.
 ![screenshot](Imagefolder/flow-2_ui.png)
 
+## 09/01/2025, meeting with jonathan flye sainte-marie
 
+When showing him the node-red flow I realize that the temperature looks wrong: 23°C instead of 19°C expected.
+Moreover the saturation of DO is 0.1% so wrong.
+Instructions from Jonathan to continue the project are:
+* validate or not the quality of the sensor in term of metrology. First get a fast response from the sensor. In fact node-red flow is very slow
+at the moment. Perhaps I am not interrogating the right adresses. It takes time when calibrating the sensor temp for example and the DO value is not responding fast.
+* for autonomous deployment. Plan is to integrate the sensor on OSO CTD P2I instead of the cond. sensor.
+So the aim is to be able to interface the sensor with arduino and build a code for the OSO to work with the sensor.
+Jonathan has bought a thread tap G3/4 to connect the sensor to a waterproof logger using à O ring seal.
+the goal is to talk with it with a code on a ESP32.
+* create a python library to talk with the sensor using python code. Building a library is new to me. There wuld functions as
+  start DO, get DO, get temp, calDO,....
 
 
 
