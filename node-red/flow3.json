@@ -1,0 +1,755 @@
+[
+    {
+        "id": "590b32fb71091399",
+        "type": "tab",
+        "label": "Flux 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ed05c63422b4c172",
+        "type": "modbus-read",
+        "z": "590b32fb71091399",
+        "name": "Add 0x0000, 4 reg",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "55",
+        "dataType": "HoldingRegister",
+        "adr": "0",
+        "quantity": "4",
+        "rate": "1",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "ae024ce1158367ed",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "137012ca79e515b4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "137012ca79e515b4",
+        "type": "function",
+        "z": "590b32fb71091399",
+        "name": "DO probe temperature (°C)",
+        "func": "// Assuming the payload contains an array of 4 double-byte integers\nlet myArray = msg.payload;\n\n// Check if it's an array and has at least 3 elements\nif (Array.isArray(myArray) && myArray.length >= 3) {\n    // Read the third value (index 2, as arrays are zero-indexed)\n    let thirdValue = myArray[2];\n\n    // Divide the third value by 10\n    let result = thirdValue / 10;\n\n    // Set the result as the new payload\n    msg.payload = result;\n} else {\n    // Handle cases where the array is invalid or too short\n    msg.payload = \"Error: Array is invalid or does not have at least 3 elements.\";\n}\n\n// Return the modified message\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 180,
+        "wires": [
+            [
+                "6fdca9c335cff481",
+                "ea4910311c626fbc"
+            ]
+        ]
+    },
+    {
+        "id": "5fa14573fb900dc6",
+        "type": "debug",
+        "z": "590b32fb71091399",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 760,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "716356beff352798",
+        "type": "modbus-read",
+        "z": "590b32fb71091399",
+        "name": "Add 0x0101, 1 reg",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "55",
+        "dataType": "HoldingRegister",
+        "adr": "257",
+        "quantity": "1",
+        "rate": "1",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "ae024ce1158367ed",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "d2a3621db1473f57"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6b6c0bfa700d33fb",
+        "type": "ui_template",
+        "z": "590b32fb71091399",
+        "group": "9352fb0fb6e0e13c",
+        "name": "SEEED studio DO probe",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align: center;\">\n    <img src=\"/DO_probe.png\" alt=\"Local Image\" style=\"max-width: 100%; height: auto;\">\n</div>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 150,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2a3621db1473f57",
+        "type": "function",
+        "z": "590b32fb71091399",
+        "name": "DO concentration (mg/L)",
+        "func": "if (Array.isArray(msg.payload) && msg.payload.length > 0) {\n    msg.payload = msg.payload[0] / 100; // Access the first element and divide by 100\n} else {\n    node.warn(\"Payload is not a valid array with at least one value.\");\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 280,
+        "wires": [
+            [
+                "5fa14573fb900dc6",
+                "4165555a56f84a4c"
+            ]
+        ]
+    },
+    {
+        "id": "6fdca9c335cff481",
+        "type": "ui_text",
+        "z": "590b32fb71091399",
+        "group": "0ed5d68dfd3ad9cf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperature",
+        "format": "{{msg.payload}} °C",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 770,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4165555a56f84a4c",
+        "type": "ui_text",
+        "z": "590b32fb71091399",
+        "group": "39793fd7f5fc7263",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "DO concentration",
+        "format": "{{msg.payload}} mg/L",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 790,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "0d04e96c3a54d17c",
+        "type": "modbus-read",
+        "z": "590b32fb71091399",
+        "name": "Add 0x0102, 1 reg",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "55",
+        "dataType": "HoldingRegister",
+        "adr": "258",
+        "quantity": "1",
+        "rate": "1",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "ae024ce1158367ed",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 150,
+        "y": 380,
+        "wires": [
+            [
+                "314ff8ee3f2eb4b5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "314ff8ee3f2eb4b5",
+        "type": "function",
+        "z": "590b32fb71091399",
+        "name": "DO saturation (%)",
+        "func": "if (Array.isArray(msg.payload) && msg.payload.length > 0) {\n    msg.payload = msg.payload[0] / 10; // Access the first element and divide by 100\n} else {\n    node.warn(\"Payload is not a valid array with at least one value.\");\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 380,
+        "wires": [
+            [
+                "2a869b56e1de5cdb",
+                "3c38d1ad3654fb88"
+            ]
+        ]
+    },
+    {
+        "id": "2a869b56e1de5cdb",
+        "type": "ui_text",
+        "z": "590b32fb71091399",
+        "group": "39793fd7f5fc7263",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "DO saturation",
+        "format": "{{msg.payload}} %",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 780,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "3c38d1ad3654fb88",
+        "type": "debug",
+        "z": "590b32fb71091399",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 760,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "8651477867389fd5",
+        "type": "modbus-read",
+        "z": "590b32fb71091399",
+        "name": "Add 0x1001, 1 reg",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "55",
+        "dataType": "HoldingRegister",
+        "adr": "4097",
+        "quantity": "1",
+        "rate": "1",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "ae024ce1158367ed",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "22bf83f8ca15838e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "22bf83f8ca15838e",
+        "type": "debug",
+        "z": "590b32fb71091399",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 540,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "6d23ad8ca3ad3134",
+        "type": "ui_form",
+        "z": "590b32fb71091399",
+        "name": "zero cal DO",
+        "label": "zero cal DO (First step)",
+        "group": "39793fd7f5fc7263",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Enter 0 for zero cal",
+                "value": "value",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "value": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 130,
+        "y": 660,
+        "wires": [
+            [
+                "2ce47666b7e0a675"
+            ]
+        ]
+    },
+    {
+        "id": "2ce47666b7e0a675",
+        "type": "modbus-write",
+        "z": "590b32fb71091399",
+        "name": "zero cal",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "55",
+        "dataType": "HoldingRegister",
+        "adr": "4097",
+        "quantity": "1",
+        "server": "ae024ce1158367ed",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 380,
+        "y": 660,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6863fab43ff4cd02",
+        "type": "modbus-read",
+        "z": "590b32fb71091399",
+        "name": "Add 0x1003, 1 reg",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "55",
+        "dataType": "HoldingRegister",
+        "adr": "4099",
+        "quantity": "1",
+        "rate": "1",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "ae024ce1158367ed",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 150,
+        "y": 880,
+        "wires": [
+            [
+                "a16b42863d7fc127"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a16b42863d7fc127",
+        "type": "debug",
+        "z": "590b32fb71091399",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 540,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "1a083120ca247a68",
+        "type": "ui_form",
+        "z": "590b32fb71091399",
+        "name": "slope cal DO",
+        "label": "slope cal DO (Second step)",
+        "group": "39793fd7f5fc7263",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "enter 0 for float cal",
+                "value": "value",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "value": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 130,
+        "y": 820,
+        "wires": [
+            [
+                "3230add102d4ae2c"
+            ]
+        ]
+    },
+    {
+        "id": "3230add102d4ae2c",
+        "type": "modbus-write",
+        "z": "590b32fb71091399",
+        "name": "slope cal",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "55",
+        "dataType": "HoldingRegister",
+        "adr": "4099",
+        "quantity": "1",
+        "server": "ae024ce1158367ed",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 380,
+        "y": 820,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "72776adc343ec915",
+        "type": "modbus-read",
+        "z": "590b32fb71091399",
+        "name": "Add 0x1000, 1 reg",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "55",
+        "dataType": "HoldingRegister",
+        "adr": "4096",
+        "quantity": "1",
+        "rate": "1",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "ae024ce1158367ed",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 150,
+        "y": 1020,
+        "wires": [
+            [
+                "8a5acf86bd9ce21f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8a5acf86bd9ce21f",
+        "type": "debug",
+        "z": "590b32fb71091399",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 620,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "365d99c36ac84d9c",
+        "type": "ui_form",
+        "z": "590b32fb71091399",
+        "name": "temp cal",
+        "label": "temp cal",
+        "group": "0ed5d68dfd3ad9cf",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "enter ref temp (1 decimal)",
+                "value": "value",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "value": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 120,
+        "y": 980,
+        "wires": [
+            [
+                "b796aae8438a94c7"
+            ]
+        ]
+    },
+    {
+        "id": "1a897fe209fbe4d8",
+        "type": "modbus-write",
+        "z": "590b32fb71091399",
+        "name": "temp cal",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "55",
+        "dataType": "HoldingRegister",
+        "adr": "4096",
+        "quantity": "1",
+        "server": "ae024ce1158367ed",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 640,
+        "y": 980,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b796aae8438a94c7",
+        "type": "function",
+        "z": "590b32fb71091399",
+        "name": "apply x 10 to value",
+        "func": "// Extract the 'value' field from the payload\nlet inputValue = Number(msg.payload.value);\n\n// Check if the extracted value is a valid number\nif (isNaN(inputValue)) {\n    node.error(\"Payload 'value' field is not a valid number: \" + msg.payload.value, msg);\n    return null;\n}\n\n// Multiply the value by 10\nmsg.payload = inputValue * 10;\n\n// Return the modified message\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 980,
+        "wires": [
+            [
+                "1a897fe209fbe4d8"
+            ]
+        ]
+    },
+    {
+        "id": "d20edd379f1c538d",
+        "type": "comment",
+        "z": "590b32fb71091399",
+        "name": "Image probe",
+        "info": "This node shows the image in the user interface",
+        "x": 110,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "65ef3751bb541d42",
+        "type": "comment",
+        "z": "590b32fb71091399",
+        "name": "Read modbus holding registers on different addresses",
+        "info": "Here we have 3 read modbus nodes:\n- the first reads 4 addresses starting at 0x0000. However, only the third value \nin the table is retrieved to obtain the temperature.\n- the second node reads DO concentration, 1 register only. \nBe careful to set addresses in decimal format!\n- last node reads % saturation\nThe poll rates are deliberately low and different to avoid collisions and sensor overload. \nthe sensor. Useful?\nNote that it may be more appropriate to use a buffer parser to read multiple addresses.\nAlso, address 0x0100 seems to be indicated in the manual for continuous readings. Should it be used first?\n",
+        "x": 240,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e5c91c22b2257fd4",
+        "type": "comment",
+        "z": "590b32fb71091399",
+        "name": "Calibration block",
+        "info": "This part is to calibrate the sensor:\n- start with temperature\n- then enter 0 to do zero cal in anoxic water. Beware of 10 cm clearance from the bottom of the becker.\n- then enter 0 to do slope cal in 100% oxygen water. Beware of clearance.\n ",
+        "x": 120,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "ea4910311c626fbc",
+        "type": "debug",
+        "z": "590b32fb71091399",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 760,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "ae024ce1158367ed",
+        "type": "modbus-client",
+        "name": "serial new",
+        "clienttype": "serial",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": 502,
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB0",
+        "serialType": "RTU",
+        "serialBaudrate": 9600,
+        "serialDatabits": 8,
+        "serialStopbits": 1,
+        "serialParity": "none",
+        "serialConnectionDelay": 100,
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 55,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
+        "reconnectOnTimeout": false,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "9352fb0fb6e0e13c",
+        "type": "ui_group",
+        "name": "Probe",
+        "tab": "cb16b6f55b38a429",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0ed5d68dfd3ad9cf",
+        "type": "ui_group",
+        "name": "temperature",
+        "tab": "cb16b6f55b38a429",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "39793fd7f5fc7263",
+        "type": "ui_group",
+        "name": "dissolved oxygen",
+        "tab": "cb16b6f55b38a429",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cb16b6f55b38a429",
+        "type": "ui_tab",
+        "name": "test",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
