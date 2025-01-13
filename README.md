@@ -265,6 +265,27 @@ the goal is to talk with it with a code on a ESP32.
 * create a python library to talk with the sensor using python code. Building a library is new to me. There wuld functions as
   start DO, get DO, get temp, calDO,....
 
+## 13/01/2025, calibration test in lab
+
+### Problem to be solved on probe S/N 24000304
+I tested the calibration of the current probe (I gave it the S/N 24000304, because of what I read at addresses 0x2004 and 0x2005). **But it does not accept the 100% saturated water cal. It gives 0.1% saturation instead.** Perhaps there is a x100 issue to solve??
+
+### Calibration success on probe S/N 24100906
+However I also tested the calibration using the same node-red flow on the new probe given by Jonathan. It works fine besides a few things:
+* Response time very long on temeprature value (perhaps because the probe is not fully submerged. It takes 1-2 min for the sensor to converge to the true temperature. Offset corrected on tempertaure sensor is 0.2, 0.3°C. After a stabilization, probe temperature is near ref temperature +/- 0.1°C.
+* We did a 100% saturated water cal on the new probe (S/N graved on probe housing: S/N24100906) and it worked fine
+* we did then a 0% cal and it outputted 0.1% which is good.
+* There was a mistake on mg/L DO value red in the node-red flow. We were reading the wrong address. It is solved now on flow 3.
+* We managed in flow 3 to have all the modbus read nodes at 1s rate
+
+  ![screenshot](Imagefolder/flow3_100percent_probe906.png)
+
+### Increasing the data rate, logging the data
+* modpoll tests output the data at 1s rate
+* according to jonathan, mexicans managed to logged the data on sd card, they managed to get the data from the sensor at a best rate that what we get with the node-red interface
+* An idea is to use modpoll command and python to talk to the sensor. Good, bad?
+* An idea is to undersand correctly the modpoll commands to write and read in each register as they seem faster
+* An idea is to abandon node-red and migrate to arduino to get better data rate, quicker sensor time response.
 
 
 
