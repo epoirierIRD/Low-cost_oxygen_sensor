@@ -1,2 +1,4 @@
 Oxigeno_... is the code from the mexicans colleagues.
 sketch_dec16a.ino is a code adapted by e poirier to read the data from the sensor
+
+pasSerial1.ino is the code to install on the arduino to send the UART frome the DFRobot card to the USB
