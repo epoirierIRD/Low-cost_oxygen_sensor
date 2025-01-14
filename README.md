@@ -287,6 +287,9 @@ However I also tested the calibration using the same node-red flow on the new pr
 * An idea is to undersand correctly the modpoll commands to write and read in each register as they seem faster
 * An idea is to abandon node-red and migrate to arduino to get better data rate, quicker sensor time response.
 
-
+### Logging data with arduino
+* managed to log temp, DO(mg/L), DO% in serial monitor and add timestamp but then I had to copy paste manually block by block to a text editor.
+* In the same time I wrot down the DO values from WTW. Several test done in 0%, 100%, waters . Slope to be examined but huge offset already showing up.
+* 
 
 
