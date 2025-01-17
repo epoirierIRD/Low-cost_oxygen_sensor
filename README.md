@@ -292,17 +292,60 @@ However I also tested the calibration using the same node-red flow on the new pr
 * In the same time I wrot down the DO values from WTW. Several test done in 0%, 100%, waters . Slope to be examined but huge offset already showing up.
 
 ## 17/01/2025, Processing the data from DO Probe seeed studio versus WTW DO sensor
-* Data files from WTW and Seeed studio probe to be found in comparison_test_14012025 folder
-- First results regarding the performances of DO Probe Seeed Studio:
+
+Data files from WTW and Seeed studio probe to be found in comparison_test_14012025 folder
+  
+- First results regarding the performances of DO Probe Seeed Studio at stabilized levels:
     - 2025/01/14, 15:15 HL immersion of both probes is 100% saturated/sursaturated water, stirred for 24hrs with magnetic stirrer
-      Averaged values observed:
-           
-| In 100% sat water| WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
-|------------------|----------|---------------------|-------------------|--------------|
-| Temperature (°C) | 21.0     | 21.0                | 0                 | stable       |
-| DO (mg/l)        | 8.11     | 9.26                | +1.15             | stable       |
-| DO sat (%)       | 109.1    | 103.9               | -5.2              | stable       |
+
+    <u>Averaged values observed on several minutes:</u>
+                 
+    | In 100% sat water| WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
+    |------------------|----------|---------------------|-------------------|--------------|
+    | Temperature (°C) | 21.0     | 21.0                | 0                 | stable       |
+    | DO (mg/l)        | 8.11     | 9.26                | +1.15             | stable       |
+    | DO sat (%)       | 109.1    | 103.9               | -5.2              | stable       |
+
+    - 2025/01/14, 15:18 HL immersion in anoxic solution prepared 24hr ago and left still
+      Stabilization for 2 minutes, below are values at 15:20
+      
+    | In 0% sat water  | WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
+    |------------------|----------|---------------------|-------------------|--------------|
+    | Temperature (°C) | 19.8     | 20.2                | +0.4              | stable       |
+    | DO (mg/l)        | 0.05     | 0.12                | +0.07             | stable       |
+    | DO sat (%)       | 1.1      | 2.0                 | +0.9              | stable       |
+
+    - 2025/01/14, 15:46:30 HL immersion of both probes is 100% saturated/sursaturated water, stirred for 24hrs with magnetic stirrer
+      Waiting for stabilization until 15:49:19
+
+    <u>Stable values red:</u>
+                 
+    | In 100% sat water| WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
+    |------------------|----------|---------------------|-------------------|--------------|
+    | Temperature (°C) | 21.0     | 20.7                | -0.3              | stable       |
+    | DO (mg/l)        | 8.06     | 9.25                | +1.19             | stable       |
+    | DO sat (%)       | 108.7    | 103.2               | -5.5              | stable       |
+
+    **We observe that these values are consistent with the first immersion in 100% sat solution at 15:15.**
+
+  - Dynamic portion observed:
     
+    - 2025-01-14;15:51:00;probe in 0 % sol
+      
+    - 2025-01-14;15:59:19;probe in 100 % sol
+    - 2025-01-14;16:05:30;added sulfite anhydre, little
+    - 2025-01-14;16:07:10;cleared serial monitor arduino
+    - 2025-01-14;16:09:00;added sulfite anhydre, good spoon
+    - 2025-01-14;16:19:10;serial monitor stopped
+    - 2025-01-14;16:25:00;added sulfite anhydre, good spoon
+
+    - 
+     
+    - hdhdh
+    - 
+    
+    
+
   
 
 
