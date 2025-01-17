@@ -290,6 +290,11 @@ However I also tested the calibration using the same node-red flow on the new pr
 ## 14/01/2025 Logging DO probe data with arduino
 * managed to log temp, DO(mg/L), DO% in serial monitor and add timestamp but then I had to copy paste manually block by block to a text editor.
 * In the same time I wrot down the DO values from WTW. Several test done in 0%, 100%, waters . Slope to be examined but huge offset already showing up.
+* Global overview of the tests:
+
+![screenshot](Imagefolder/DO_global.png)
+![screenshot](Imagefolder/DOsat_global.png)
+
 
 ## 17/01/2025, Processing the data from DO Probe seeed studio versus WTW DO sensor
 
@@ -403,7 +408,7 @@ We assume that our calibrated WTW probe is our reference and is accurate.
 
 Memo regarding metrology words:
 
-
+![screenshot](Imagefolder/metrology_memo.png)
 
 Range : We managed to check following sensor ranges: [19,21]°C, [0.01, 9.39]mg/L, [0.4, 103.5]%
 **To be done: investigate < 19°C and > 21 °C temperatures**
@@ -424,6 +429,9 @@ Temperature data is true. It has been checked against mercure thermometer as wel
 Sensitivity/resolution: 
 Sensor is able to measure DO rate of -0.01mg/L/2sec and +0.03mg/L/sec
 Sensor resolution of +/- 0.1°C has been verified as well as O.O1 mg/L on DO.
+
+Accuracy:
+**Sensor accuracy and response time on DO concentration has to be investigated further on intermediate concentration 30%, 60%.**
 
 
 
