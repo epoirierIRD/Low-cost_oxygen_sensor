@@ -303,29 +303,18 @@ However I also tested the calibration using the same node-red flow on the new pr
 Data files from WTW and Seeed studio probe to be found in comparison_test_14012025 folder
   
 - First results regarding the performances of DO Probe Seeed Studio at stabilized levels:
-    - 2025/01/14, 15:15 HL immersion of both probes is 100% saturated/sursaturated water, stirred for 24hrs with magnetic stirrer
+  
+    - Immersion of both probes is **100%** saturated/sursaturated water, stirred for 24hrs with magnetic stirrer
 
-    **Averaged values observed on several minutes:**
+    **Averaged values observed on several minutes 2025/01/14, 15:15 HL:**
                  
     | In 100% sat water| WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | in Specs ?   |
     |------------------|----------|---------------------|-------------------|--------------|
-    | Temperature (°C) | 21.0     | 21.0                | 0                 | Yes, <0.3    |
-    | DO (mg/l)        | 8.11     | 9.26                | +1.15             | **No, >0.4**     |
+    | Temperature (°C) | 21.0     | 21.0                | 0                 | Yes, <<0.3   |
+    | DO (mg/l)        | 8.11     | 9.26                | +1.15             | **No, >0.4** |
     | DO sat (%)       | 109.1    | 103.9               | -5.2              | NC           |
 
-    - 2025/01/14, 15:18 HL immersion in anoxic solution prepared 24hr ago and left still
-      Stabilization for 2 minutes, below are values at 15:20
-      
-    | In 0% sat water  | WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | in Specs ?   |
-    |------------------|----------|---------------------|-------------------|--------------|
-    | Temperature (°C) | 19.8     | 20.2                | +0.4              | **No >0.3**  |
-    | DO (mg/l)        | 0.05     | 0.12                | +0.07             | Yes <0.4     |
-    | DO sat (%)       | 1.1      | 2.0                 | +0.9              | NC           |
-
-    - 2025/01/14, 15:46:30 HL immersion of both probes is 100% saturated/sursaturated water, stirred for 24hrs with magnetic stirrer
-      Waiting for stabilization until 15:49:19
-
-    <u>Stable values red:</u>
+    **Averaged values observed from 2025/01/14, 15:46:30 HL -> 15:49:19**:
                  
     | In 100% sat water| WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | in Specs     |
     |------------------|----------|---------------------|-------------------|--------------|
@@ -333,22 +322,46 @@ Data files from WTW and Seeed studio probe to be found in comparison_test_140120
     | DO (mg/l)        | 8.06     | 9.25                | +1.19             | **No, >0.4** |
     | DO sat (%)       | 108.7    | 103.2               | -5.5              | NC           |
 
-    **We observe that these values are consistent with the first immersion in 100% sat solution at 15:15.**
+    **Conclusion1: We observe that these values in 100% sat water are consistent. Biais on DO(mg/L) is have specs. In fact we rae in the middle of the range [0-20] which should give the best values. To be investigated...
+    Records of temperature are ok. Saturation is affected as much as dissolved oxygen concentration.**
+
+    - 2025/01/14, 15:18 HL immersion in **anoxic solution** prepared 24hr ago and left still
+  
+    **Stabilization for 2 minutes, below are values at 15:20 HL:**
+       
+    | In 0% sat water  | WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | in Specs ?   |
+    |------------------|----------|---------------------|-------------------|--------------|
+    | Temperature (°C) | 19.8     | 20.2                | +0.4              | **No >0.3**  |
+    | DO (mg/l)        | 0.05     | 0.12                | +0.07             | Yes <0.4     |
+    | DO sat (%)       | 1.1      | 2.0                 | +0.9              | NC           |
+
+     **Stabilization at 16:31:30 HL, ending the experiment:**
+  
+    | In 0% sat water  | WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | in Specs ?   |
+    |------------------|----------|---------------------|-------------------|--------------|
+    | Temperature (°C) | 20.9     | 20.9                | 0                 | Yes << 0.3   |
+    | DO (mg/l)        | 0        | 0.04                | +0.04             | Yes << 0.4   |
+    | DO sat (%)       | 0        | 0.4                 | +0.4              | NC           |
+
+    **Conclusion2: In anoxic water we logically observe a significant diminution of the biais comparing with saturated water. We are almost in the specs.**
 
   - Dynamic portion observed:
     
-    - 2025-01-14;15:51:00 -> 15:53:20 ;probe immerged in 0 % sol, Phase 1
-      - 15:52:00 DO probe - DO WTW = -1.2 mg/L << -0.4mg/L (specs) => not good
-      - 15:52:30 DO probe - DO WTW = -0.3 mg/L > -0.4mg/L (specs) = good
-      - As we approach the 0% the diffrence probe - ref decreases.
+    - 2025-01-14;15:51:00 -> 15:53:20 ;probe immerged in 0 % sol, observing the decreasing of DO. Phase 1
+        - 15:52:00 DO probe - DO WTW = -1.2 mg/L << -0.4mg/L (specs) => not good
+        - 15:52:30 DO probe - DO WTW = -0.3 mg/L > -0.4mg/L (specs) = good
+        - As we approach the 0% the diffrence probe - ref decreases as per the conclusion 2 above
+          
   
-      include graphics 
+      include graphics, DO and temp
 
       
       
-    - 2025-01-14;15:59:19 -> 16:02:00 ;probe in 100 % sol, Phase 2
-    - 2025-01-14;16:05:30;added sulfite anhydre, little, no seeed probe data recorded
-    - 2025-01-14;16:09:00;added sulfite anhydre, good spoon -> 16:13 Phase 2
+    - 2025-01-14;15:59:19 -> 16:02:00 ;probe in 100 % sol, observing the increasing of DO. Phase 2
+   
+      
+    - 2025-01-14;16:05:30;added sulfite anhydre, little, no seeed probe data recorded, observing the decreasing of DO.
+    - 2025-01-14;16:09:00 -> 16:13 ;added sulfite anhydre, good spoon, observing the decreasing of D0, Phase 2
     - 2025-01-14; 16:19:10 -> 16:19:50, check point
     - 2025-01-14;16:25:00;added sulfite anhydre, good spoon -> 16:31:30
 
