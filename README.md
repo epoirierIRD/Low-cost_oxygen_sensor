@@ -376,24 +376,59 @@ Data files from WTW and Seeed studio probe to be found in comparison_test_140120
       16:05:20 8.11 mg/L 109,2%
       
     - 2025-01-14;16:09:00 -> 16:13 ;added sulfite anhydre, good spoon, observing the decreasing of D0, Phase 3
-      **Conclusion4: The decreasing slope is not the same between the two sensors. The biais increases with time and with DO concentration decreasing. temperature is very stable.**
+      **Conclusion4: The decreasing slope is diffrent between the two sensors. The biais increases with time and with DO concentration decreasing. Temperature is very stable.**
       
       ![screenshot](Imagefolder/DO_phase3.png)
       ![screenshot](Imagefolder/DOsat_phase3.png)
       ![screenshot](Imagefolder/temp_phase3.png)
       
-    - 2025-01-14; 16:19:10 -> 16:19:50, check point
-   
+    - 2025-01-14; 16:19:10 -> 16:19:50, check point on 5 values, no DO(mg/L) values available for WTW, Phase 5
+      **Conclusion5: We observe a stable temperature, a +22% offset (mes-ref) on DO sat %, 0.01mg/L / 2sec is the decreasing rate observed. There is a big difference between WTW DO and Seeed probe DO
+      visible in the saturation but not represented in mg/L, could be calculated. That remains unsatisfying. Peggy Rimmelin-Maury(IUEM/CNRS) explained me that it could come from non homogenous water caused by the processus
+      of disslovinng  suflite anhydre. She recommends using a propoer dissolved solution and mixe it with a 100% saturated one.**
       
-    - 2025-01-14;16:25:00;added sulfite anhydre, good spoon -> 16:31:30
-
+      ![screenshot](Imagefolder/DO_phase5.png)
+      ![screenshot](Imagefolder/DOsat_phase5.png)
+      ![screenshot](Imagefolder/temp_phase5.png)
+      
+    - 2025-01-14;16:25:00;added sulfite anhydre, good spoon -> 16:31:30, reaching 0%, Phase 4
+      **Conclusion6: We observe a stable temperature with unsignificant spikes (0.1°C). No DO concentration recorded by WTW. However sat graph show a convergence of the WTW data to 0% about 1min after the SEEED probe data.**
+      
       ![screenshot](Imagefolder/DO_phase4.png)
       ![screenshot](Imagefolder/DOsat_phase4.png)
       ![screenshot](Imagefolder/temp_phase4.png)
-    - 
-     
-    - hdhdh
-    - 
+
+## 17/01/2025, Conclusion on the performances of Seeed Studio DO Probe
+We assume that our calibrated WTW probe is our reference and is accurate.
+
+Memo regarding metrology words:
+
+
+
+Range : We managed to check following sensor ranges: [19,21]°C, [0.01, 9.39]mg/L, [0.4, 103.5]%
+**To be done: investigate < 19°C and > 21 °C temperatures**
+
+Precision: DO probe data are precise in terms of temperature, DO concentration and saturation. We can say that as per the very low noise level observed.Conclusion5.
+
+Truness: 
+Temperature data is true. It has been checked against mercure thermometer as well. However response time has not been tested and the full range neither.
+
+* DO concentration data is not true in saturated water. It lies +1.17 mg/L >> 0.4 mg/L (specs) in saturated water. Check Conclusion1.
+* DO concentration data is true in anoxic water. Check Conclusion2.
+* DO concentration data is not true on > slopes. On increasing DO concentration, probe data comes faster to saturation that WTW ref data (Conclusion4). In fact we have 96% at the WTW when the probe is at 103.5%.
+* DO concentration data is not true on < slopes. On decreasing DO concentration:
+  At high concentration 85% avg: Conclusion 4 shows Mes >> Ref Biais = +2mg/L average. This biais increases.
+  At mid-concentration 55% avg: Conclusion5 shows Mes >> Ref by +22% 
+  At low concentration 15% avg: Conclusion3 shows Mes << Ref Mes = 15% and Ref = 30% Biais = -15% in the beginning of the record.
+
+Sensitivity/resolution: 
+Sensor is able to measure DO rate of -0.01mg/L/2sec and +0.03mg/L/sec
+Sensor resolution of +/- 0.1°C has been verified as well as O.O1 mg/L on DO.
+
+
+
+
+
     
     
 
