@@ -297,7 +297,7 @@ However I also tested the calibration using the same node-red flow on the new pr
     - 2025/01/14, 15:15 HL immersion of both probes is 100% saturated/sursaturated water, stirred for 24hrs with magnetic stirrer
       Averaged values observed:
            
-|                  | WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
+| In 100% sat water| WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
 |------------------|----------|---------------------|-------------------|--------------|
 | Temperature (°C) | 21.0     | 21.0                | 0                 | stable       |
 | DO (mg/l)        | 8.11     | 9.26                | +1.15             | stable       |
