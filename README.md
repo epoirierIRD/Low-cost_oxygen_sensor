@@ -293,8 +293,19 @@ However I also tested the calibration using the same node-red flow on the new pr
 
 ## 17/01/2025, Processing the data from DO Probe seeed studio versus WTW DO sensor
 * Data files from WTW and Seeed studio probe to be found in comparison_test_14012025 folder
-- First results:
-    - gsgsg
+- First results regarding the performances of DO Probe Seeed Studio:
+    - 2025/01/14, 15:15 HL immersion of both probes is 100% saturated/sursaturated water, stirred for 24hrs with magnetic stirrer
+      Averaged values observed
+      Temperature: WTW 21,0°C / SeeedProbe 21,0°C -> Biais 0°C
+      DO: WTW 8,11 mg/L / SeeedProbe 9,26 mg/L -> Biais +1,15 mg/L
+      DO sat: WTW 109,1 % / SeeedProbe 103,9 %
+      values remain stable
+      |                  | WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
+|------------------|----------|---------------------|-------------------|--------------|
+| Temperature (°C) | 21.0     | 21.0                | 0                 | stable       |
+| DO (mg/l)        | 8.11     | 9.26                | +1.15             | stable       |
+| DO sat (%)       | 109.1    | 103.9               | -5.2              | stable       |
+      
     - gsgsgs
   
 
