@@ -1,0 +1,82 @@
+"Metadata :
+ref value from WTW probe FDO 925, S/N 16161942
+Interfaced with Multi3630 IDS
+data wrote on paper by operator and typped in computer later
+100 % Calibration of WTW probe done by epoirier the same day
+Both probes were moved together in the respective sturated and anoxic water beckers
+Done at IUEm Brest metrology lab";;;;;
+Date;Time HL;wtw_temp(°C);wtw_DO(mg/L);wtw_Dosat(%);event
+2025-01-14;15:13:00;no_data;no_data;no_data;probe immersed in 100 % sol
+2025-01-14;15:15:00;21,0;8,11;109,1;moy
+2025-01-14;15:18:00;no_data;no_data;no_data;probe immersed in 0 % sol
+2025-01-14;15:20:00;19,8;0,048;1,1;
+2025-01-14;15:46:00;20,9;8,07;100,9;
+2025-01-14;15:46:30;no_data;no_data;no_data;probe in 100 % saturated solution
+2025-01-14;15:49:19;21,0;8,06;108,7;
+2025-01-14;15:51:00;no_data;no_data;no_data;probe in 0 % sol
+2025-01-14;15:51:30;20,0;3,59;54,4;
+2025-01-14;15:52:00;no_data;2,57;30,9;
+2025-01-14;15:52:30;20,0;0,6;5,9;
+2025-01-14;15:59:19;no_data;no_data;96,1;probe in 100 % sol
+2025-01-14;15:59:25;no_data;no_data;97,6;
+2025-01-14;15:59:29;no_data;no_data;98,2;
+2025-01-14;15:59:34;no_data;no_data;98,9;
+2025-01-14;15:59:39;no_data;no_data;99,3;
+2025-01-14;15:59:45;no_data;no_data;99,8;
+2025-01-14;15:59:54;no_data;no_data;100,4;
+2025-01-14;16:00:00;no_data;no_data;100,7;
+2025-01-14;16:05:10;no_data;8,09;109,1;
+2025-01-14;16:05:20;no_data;8,11;109,2;
+2025-01-14;16:05:30;no_data;no_data;no_data;added sulfite anhydre, little
+2025-01-14;16:06:10;no_data;8,03;no_data;
+2025-01-14;16:06:20;no_data;7,94;no_data;
+2025-01-14;16:06:30;no_data;7,9;no_data;
+2025-01-14;16:06:40;no_data;7,86;no_data;
+2025-01-14;16:06:50;no_data;7,82;no_data;
+2025-01-14;16:07:00;no_data;7,79;no_data;
+2025-01-14;16:07:10;no_data;7,77;no_data;cleared serial monitor arduino
+2025-01-14;16:09:00;no_data;no_data;no_data;added sulfite anhydre, good spoon
+2025-01-14;16:09:10;no_data;7,33;no_data;
+2025-01-14;16:09:20;no_data;7,24;no_data;
+2025-01-14;16:09:30;no_data;7,09;no_data;
+2025-01-14;16:09:40;no_data;6,92;no_data;
+2025-01-14;16:09:50;no_data;6,78;no_data;
+2025-01-14;16:10:00;no_data;6,65;no_data;
+2025-01-14;16:10:10;no_data;6,5;no_data;
+2025-01-14;16:10:20;no_data;6,34;no_data;
+2025-01-14;16:10:30;no_data;6,21;no_data;
+2025-01-14;16:10:40;no_data;6,07;no_data;
+2025-01-14;16:10:50;no_data;5,92;no_data;
+2025-01-14;16:11:00;no_data;5,78;no_data;
+2025-01-14;16:11:10;no_data;5,64;no_data;
+2025-01-14;16:11:20;no_data;5,51;no_data;
+2025-01-14;16:11:30;no_data;5,35;no_data;
+2025-01-14;16:11:40;no_data;5,24;no_data;
+2025-01-14;16:11:50;no_data;5,14;no_data;
+2025-01-14;16:12:00;no_data;5;no_data;
+2025-01-14;16:12:10;no_data;4,91;no_data;
+2025-01-14;16:12:20;no_data;4,79;no_data;
+2025-01-14;16:12:30;20,9;4,69;no_data;
+2025-01-14;16:12:40;no_data;4,59;no_data;
+2025-01-14;16:12:50;no_data;4,5;no_data;
+2025-01-14;16:13:00;no_data;4,41;no_data;
+2025-01-14;16:19:10;no_data;no_data;41,1;serial monitor stopped
+2025-01-14;16:19:20;no_data;no_data;40,6;
+2025-01-14;16:19:30;no_data;no_data;40,3;
+2025-01-14;16:19:40;no_data;no_data;39,8;
+2025-01-14;16:19:50;no_data;no_data;39,1;
+2025-01-14;16:25:00;no_data;no_data;no_data;added sulfite anhydre, good spoon
+2025-01-14;16:25:10;no_data;no_data;20,9;
+2025-01-14;16:25:20;no_data;no_data;18,1;
+2025-01-14;16:25:30;no_data;no_data;13,8;
+2025-01-14;16:25:40;no_data;no_data;11;
+2025-01-14;16:25:50;no_data;no_data;7,6;
+2025-01-14;16:26:00;no_data;no_data;5,3;
+2025-01-14;16:26:10;no_data;no_data;3,9;
+2025-01-14;16:26:20;no_data;no_data;2,8;
+2025-01-14;16:26:30;no_data;no_data;2;
+2025-01-14;16:26:40;no_data;no_data;1,5;
+2025-01-14;16:26:50;no_data;no_data;1,1;
+2025-01-14;16:27:00;no_data;no_data;0,7;
+2025-01-14;16:27:20;20,9;no_data;0,3;
+2025-01-14;16:31:30;20,9;0;0;
