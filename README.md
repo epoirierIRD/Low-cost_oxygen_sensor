@@ -293,51 +293,64 @@ However I also tested the calibration using the same node-red flow on the new pr
 
 ## 17/01/2025, Processing the data from DO Probe seeed studio versus WTW DO sensor
 
+**Specs of the DO Probe SeeedStudio are:**
+* Range DO [0-20.00] mg/L
+* Precision DO +/-2% FS which means +/-0.4 mg/L
+* Precision temperature +/- 0.3°C
+* Resolution DO 0.01 mg/L
+* Resolution temperature 0.1°C
+
 Data files from WTW and Seeed studio probe to be found in comparison_test_14012025 folder
   
 - First results regarding the performances of DO Probe Seeed Studio at stabilized levels:
     - 2025/01/14, 15:15 HL immersion of both probes is 100% saturated/sursaturated water, stirred for 24hrs with magnetic stirrer
 
-    <u>Averaged values observed on several minutes:</u>
+    **Averaged values observed on several minutes:**
                  
-    | In 100% sat water| WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
+    | In 100% sat water| WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | in Specs ?   |
     |------------------|----------|---------------------|-------------------|--------------|
-    | Temperature (°C) | 21.0     | 21.0                | 0                 | stable       |
-    | DO (mg/l)        | 8.11     | 9.26                | +1.15             | stable       |
-    | DO sat (%)       | 109.1    | 103.9               | -5.2              | stable       |
+    | Temperature (°C) | 21.0     | 21.0                | 0                 | Yes, <0.3    |
+    | DO (mg/l)        | 8.11     | 9.26                | +1.15             | **No, >0.4**     |
+    | DO sat (%)       | 109.1    | 103.9               | -5.2              | NC           |
 
     - 2025/01/14, 15:18 HL immersion in anoxic solution prepared 24hr ago and left still
       Stabilization for 2 minutes, below are values at 15:20
       
-    | In 0% sat water  | WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
+    | In 0% sat water  | WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | in Specs ?   |
     |------------------|----------|---------------------|-------------------|--------------|
-    | Temperature (°C) | 19.8     | 20.2                | +0.4              | stable       |
-    | DO (mg/l)        | 0.05     | 0.12                | +0.07             | stable       |
-    | DO sat (%)       | 1.1      | 2.0                 | +0.9              | stable       |
+    | Temperature (°C) | 19.8     | 20.2                | +0.4              | **No >0.3**  |
+    | DO (mg/l)        | 0.05     | 0.12                | +0.07             | Yes <0.4     |
+    | DO sat (%)       | 1.1      | 2.0                 | +0.9              | NC           |
 
     - 2025/01/14, 15:46:30 HL immersion of both probes is 100% saturated/sursaturated water, stirred for 24hrs with magnetic stirrer
       Waiting for stabilization until 15:49:19
 
     <u>Stable values red:</u>
                  
-    | In 100% sat water| WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
+    | In 100% sat water| WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | in Specs     |
     |------------------|----------|---------------------|-------------------|--------------|
-    | Temperature (°C) | 21.0     | 20.7                | -0.3              | stable       |
-    | DO (mg/l)        | 8.06     | 9.25                | +1.19             | stable       |
-    | DO sat (%)       | 108.7    | 103.2               | -5.5              | stable       |
+    | Temperature (°C) | 21.0     | 20.7                | -0.3              | Yes, = -0.3  |
+    | DO (mg/l)        | 8.06     | 9.25                | +1.19             | **No, >0.4** |
+    | DO sat (%)       | 108.7    | 103.2               | -5.5              | NC           |
 
     **We observe that these values are consistent with the first immersion in 100% sat solution at 15:15.**
 
   - Dynamic portion observed:
     
-    - 2025-01-14;15:51:00;probe in 0 % sol
+    - 2025-01-14;15:51:00 -> 15:53:20 ;probe immerged in 0 % sol, Phase 1
+      - 15:52:00 DO probe - DO WTW = -1.2 mg/L << -0.4mg/L (specs) => not good
+      - 15:52:30 DO probe - DO WTW = -0.3 mg/L > -0.4mg/L (specs) = good
+      - As we approach the 0% the diffrence probe - ref decreases.
+  
+      include graphics 
+
       
-    - 2025-01-14;15:59:19;probe in 100 % sol
-    - 2025-01-14;16:05:30;added sulfite anhydre, little
-    - 2025-01-14;16:07:10;cleared serial monitor arduino
-    - 2025-01-14;16:09:00;added sulfite anhydre, good spoon
-    - 2025-01-14;16:19:10;serial monitor stopped
-    - 2025-01-14;16:25:00;added sulfite anhydre, good spoon
+      
+    - 2025-01-14;15:59:19 -> 16:02:00 ;probe in 100 % sol, Phase 2
+    - 2025-01-14;16:05:30;added sulfite anhydre, little, no seeed probe data recorded
+    - 2025-01-14;16:09:00;added sulfite anhydre, good spoon -> 16:13 Phase 2
+    - 2025-01-14; 16:19:10 -> 16:19:50, check point
+    - 2025-01-14;16:25:00;added sulfite anhydre, good spoon -> 16:31:30
 
     - 
      
