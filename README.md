@@ -411,7 +411,13 @@ Memo regarding metrology words:
 ![screenshot](Imagefolder/metrology_memo.png)
 
 Range : We managed to check following sensor ranges: [19,21]°C, [0.01, 9.39]mg/L, [0.4, 103.5]%
-**To be done: investigate < 19°C and > 21 °C temperatures**
+**To be done: investigate < 19°C and > 21 °C temperatures and [9-20]mg/L DO concentrations**
+
+All the results below are in respect with the above ranges explored.
+
+Sensitivity/resolution: 
+Sensor is able to measure DO rate of -0.01mg/L/2sec and +0.03mg/L/sec
+Sensor resolution of +/- 0.1°C has been verified as well as O.O1 mg/L on DO.
 
 Precision: DO probe data are precise in terms of temperature, DO concentration and saturation. We can say that as per the very low noise level observed.Conclusion5.
 
@@ -425,10 +431,6 @@ Temperature data is true. It has been checked against mercure thermometer as wel
   At high concentration 85% avg: Conclusion 4 shows Mes >> Ref Biais = +2mg/L average. This biais increases.
   At mid-concentration 55% avg: Conclusion5 shows Mes >> Ref by +22% 
   At low concentration 15% avg: Conclusion3 shows Mes << Ref Mes = 15% and Ref = 30% Biais = -15% in the beginning of the record.
-
-Sensitivity/resolution: 
-Sensor is able to measure DO rate of -0.01mg/L/2sec and +0.03mg/L/sec
-Sensor resolution of +/- 0.1°C has been verified as well as O.O1 mg/L on DO.
 
 Accuracy:
 **Sensor accuracy and response time on DO concentration has to be investigated further on intermediate concentration 30%, 60%.**
