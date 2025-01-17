@@ -294,8 +294,8 @@ However I also tested the calibration using the same node-red flow on the new pr
 ## 17/01/2025, Processing the data from DO Probe seeed studio versus WTW DO sensor
 * Data files from WTW and Seeed studio probe to be found in comparison_test_14012025 folder
 * First results:
-  ** gsgsg
-  ** gsgsgs
+** gsgsg
+** gsgsgs
   
 
 
