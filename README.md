@@ -345,26 +345,51 @@ Data files from WTW and Seeed studio probe to be found in comparison_test_140120
 
     **Conclusion2: In anoxic water we logically observe a significant diminution of the biais comparing with saturated water. We are almost in the specs.**
 
-  - Dynamic portion observed:
+  - Dynamic portions observed:
     
     - 2025-01-14;15:51:00 -> 15:53:20 ;probe immerged in 0 % sol, observing the decreasing of DO. Phase 1
         - 15:52:00 DO probe - DO WTW = -1.2 mg/L << -0.4mg/L (specs) => not good
         - 15:52:30 DO probe - DO WTW = -0.3 mg/L > -0.4mg/L (specs) = good
-        - As we approach the 0% the diffrence probe - ref decreases as per the conclusion 2 above
+      **Concluison3: As we approach the 0% the diffrence probe - ref decreases as per the conclusion 2 above.
+      Also in the decreasing part, we can identify doublets in the data showing that the sensor does not really output a new dataset every second.
+      Perhaps this is due to the time stamping in arduino.**
           
-  
-      include graphics, DO and temp
-
-      
+      ![screenshot](Imagefolder/DO_phase1.png)
+      ![screenshot](Imagefolder/DOsat_phase1.png)
+      ![screenshot](Imagefolder/temp_phase1.png) 
       
     - 2025-01-14;15:59:19 -> 16:02:00 ;probe in 100 % sol, observing the increasing of DO. Phase 2
-   
+      **Conclusion4: Even if this is not very stable in terms of T°C and DO(mg/L), the DO concentration data are not noisy.
+      No data were recorded for the WTW in DO concentration.
+      However DO saturation data show a big biais in this portion. The SEEED probe seem to response faster.
+      But that should not be the case regarding the high cost and quality of foils used on WTW probe. They should respond faster. Perhaps the SEEED probe respond too fast to the
+      immersion in saturated water? There is to investigate on this portion.**
+      
+      ![screenshot](Imagefolder/DO_phase2.png)
+      ![screenshot](Imagefolder/DOsat_phase2.png)
+      ![screenshot](Imagefolder/temp_phase2.png) 
       
     - 2025-01-14;16:05:30;added sulfite anhydre, little, no seeed probe data recorded, observing the decreasing of DO.
-    - 2025-01-14;16:09:00 -> 16:13 ;added sulfite anhydre, good spoon, observing the decreasing of D0, Phase 2
+      Data written for WTW are before adding sulfite
+      
+      16:05:10 8.09 mg/L 109,1%
+      16:05:20 8.11 mg/L 109,2%
+      
+    - 2025-01-14;16:09:00 -> 16:13 ;added sulfite anhydre, good spoon, observing the decreasing of D0, Phase 3
+      **Conclusion4: The decreasing slope is not the same between the two sensors. The biais increases with time and with DO concentration decreasing. temperature is very stable.**
+      
+      ![screenshot](Imagefolder/DO_phase3.png)
+      ![screenshot](Imagefolder/DOsat_phase3.png)
+      ![screenshot](Imagefolder/temp_phase3.png)
+      
     - 2025-01-14; 16:19:10 -> 16:19:50, check point
+   
+      
     - 2025-01-14;16:25:00;added sulfite anhydre, good spoon -> 16:31:30
 
+      ![screenshot](Imagefolder/DO_phase4.png)
+      ![screenshot](Imagefolder/DOsat_phase4.png)
+      ![screenshot](Imagefolder/temp_phase4.png)
     - 
      
     - hdhdh
