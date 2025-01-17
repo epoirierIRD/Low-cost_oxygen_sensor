@@ -421,7 +421,7 @@ Sensor resolution of +/- 0.1°C has been verified as well as O.O1 mg/L on DO.
 
 Precision: DO probe data are precise in terms of temperature, DO concentration and saturation. We can say that as per the very low noise level observed.Conclusion5.
 
-Truness: 
+Trueness: 
 Temperature data is true. It has been checked against mercure thermometer as well. However response time has not been tested and the full range neither.
 
 * DO concentration data is not true in saturated water. It lies +1.17 mg/L >> 0.4 mg/L (specs) in saturated water. Check Conclusion1.
