@@ -300,13 +300,13 @@ However I also tested the calibration using the same node-red flow on the new pr
       DO: WTW 8,11 mg/L / SeeedProbe 9,26 mg/L -> Biais +1,15 mg/L
       DO sat: WTW 109,1 % / SeeedProbe 103,9 %
       values remain stable
-      |                  | WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
+      
+|                  | WTW(ref) | SeeedStudio(instru) | Biais(instru-ref) | Sigma instru |
 |------------------|----------|---------------------|-------------------|--------------|
 | Temperature (°C) | 21.0     | 21.0                | 0                 | stable       |
 | DO (mg/l)        | 8.11     | 9.26                | +1.15             | stable       |
 | DO sat (%)       | 109.1    | 103.9               | -5.2              | stable       |
-      
-    - gsgsgs
+    
   
 
 
