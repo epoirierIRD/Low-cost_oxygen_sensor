@@ -40,5 +40,9 @@ seeed probe converted_seeed_probe.txt
 
 File from wtw has been log by the console multi3630 and then downoaded to a USB stick. Final file to use is wtwt_ref_data.txt
 
+****************WARNING***********
+Be carefull the data logged in the WTW cahnges from mg/L to % depending of what you display on the console
+moreover we must determine what is the first values outputted by seeed probe and what is the calculated one
+To do that use sal water solution and non sal solution and bith saturated and check the values of the seeed probe in both solutions
 
 
