@@ -38,5 +38,7 @@ Data from the seeed probe has been log with computer time and log_to_serial.py p
 and file could be red only with vim that's whay correction with bash script was performed to get the raw data file from
 seeed probe converted_seeed_probe.txt
 
+File from wtw has been log by the console multi3630 and then downoaded to a USB stick. Final file to use is wtwt_ref_data.txt
+
 
 
