@@ -34,6 +34,9 @@ no bubbles on foils WTW nor SSP (SEEED STUDIO PROBE)
 - 12:12:30 pourred 0% sat solution in the 100% sat solution present in the becker with the probes
 - 12:25:10 0% sat reached after 13 minutes approx 
 
+Data from the seeed probe has been log with computer time and log_to_serial.py python script. However formatting was not correct
+and file could be red only with vim that's whay correction with bash script was performed to get the raw data file from
+seeed probe converted_seeed_probe.txt
 
 
 
