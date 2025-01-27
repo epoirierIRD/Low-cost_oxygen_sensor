@@ -1,1 +1,39 @@
+Comparison test between Seeed studio probe and WTW
+- WTW clock adjusted to UTC
+  salinity correction deactivated
+  FDO check done 99.5%, ok, beacuse in range [98-100%]
+
+- WTW in saturated becker together with probe Aquatroll 600 from Anne Royer
+Aquatroll data DO 94.1%, 8.40mg/L 20.93°C
+WTW data       DO 107%,  9.52mg/L  20.8°C
+Theoric sat              8.95mg/L +/-5% or 0.4mg/L, calculated by Peggy
+
+It looks like the WTW is surestimating the sat versus the other probes but according to Jonathan it may be realistic regarding the
+below explanation:
+
+According to Jonathan Flye it is better not to use data straight from the tap because
+it is pressurized water so there is pressurized oxygen in it and when it is pourred in the becker, oxygen 
+changes phasis from dissolved to gas and sticks to the foils of becker sides.
+So to insure zero salinity and avoid gas bubbles, use rested water from the tap, non pressurized water or even better MilliQ water.
+
+Even more to perform data comparison at diffrent levels of saturation, he recommends to 
+put a layer on the becker water surface to stop gas exchanges, then fit a gas bubbler in the becker and 
+gas azote in it. We may be able to get saturation steps 20%, 50%, 70% to perform sensor comparison at diffrent sat levels.
+check raul sanchez thesis for that or ask laure chirurugien MIO or sophie van ganse ifremer.
+
+- operations followed newt:
+- DO calibration DONE dry in saturated air vapor: measured 106.5%
+- 12:01 logging started in sursaturated water >100%
+- Temp: 
+20.9°C WTW
+20.9°C SSP
+20.9°C analogic
+no bubbles on foils WTW nor SSP (SEEED STUDIO PROBE)
+
+- 12:05 solution in preparation in a separated becker with approximated qty of sulfite anhydre dissolved for 5 min
+- 12:12:30 pourred 0% sat solution in the 100% sat solution present in the becker with the probes
+- 12:25:10 0% sat reached after 13 minutes approx 
+
+
+
 
