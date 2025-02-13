@@ -435,9 +435,11 @@ Temperature data is true. It has been checked against mercure thermometer as wel
 Accuracy:
 **Sensor accuracy and response time on DO concentration has to be investigated further on intermediate concentration 30%, 60%.**
 
+## 21/01/2025, New performances tests of Seeed Studio DO Probe
 
+**It has been noticed by JFSM that on the above test of 14/01/2025, the WTW where compensated with salinity. That was true beacuse in the WTW logger a compensation of 35g/L salinity was applied. All tests from 14/01/2025 in DO concentration must be considered as false.**
 
-
+On the 21/01/2025, new test where performed with no salinity compensation in the WTW logger. 
 
     
     
