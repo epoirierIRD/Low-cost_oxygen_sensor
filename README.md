@@ -439,7 +439,22 @@ Accuracy:
 
 **It has been noticed by JFSM that on the above test of 14/01/2025, the WTW where compensated with salinity. That was true beacuse in the WTW logger a compensation of 35g/L salinity was applied. All tests from 14/01/2025 in DO concentration must be considered as false.**
 
-On the 21/01/2025, new test where performed with no salinity compensation in the WTW logger. 
+On the 21/01/2025, new test where performed with no salinity compensation in the WTW logger. Better explanation of the experiment are to be found in the corresponding folder.
+
+- First observation: do not use water straight from the tap. Better use relaxed water
+
+- First phase is the saturation phase. We observe a low noise/dispersion on the seeed studio comparable with the WTW.
+  Dispersion is around +/- 0.02mg/L
+
+  ![screenshot](comparison_test_20250121/palier_en_saturé.png)
+
+- During the desaturation phasis, this is what we observe. There is a delay between the two sensors. The SS probe reaches the 0% sat first.
+- The step visible at 11:21 approx on the SS probe data is not explained
+- The decreasing slope of the % sta is very straight on the SS probe. Looks less realistic that the WTW probe data.
+  
+ ![screenshot](comparison_test_20250121/desaturation.png)
+
+
 
     
     
