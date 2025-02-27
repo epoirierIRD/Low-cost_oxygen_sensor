@@ -454,6 +454,17 @@ On the 21/01/2025, new test where performed with no salinity compensation in the
   
  ![screenshot](comparison_test_20250121/desaturation.png)
 
+## 27/02/2025, experiment to characterize the sensor perfomances at diffrent % of saturation
+
+**First step was to solve the problem of logging the data from the probe with a correct format:**
+In fact the arduino script outputting the data + the python script to log them in a file was not satisfying. The format of the file could be red only with Vim and not the text editor and needed reformatting.
+So the new solution is to log the data coming from the probe using minicom utility.
+```Bash
+sudo apt install minicom
+minicom -b 9600 -D /dev/ttyUSB0
+```
+Then Ctrl+A to access minicom menu press L key and choose you file name to launch logging in a file
+Ctrl+A Q to quit minicom
 
 
     
