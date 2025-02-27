@@ -463,8 +463,8 @@ So the new solution is to log the data coming from the probe using minicom utili
 sudo apt install minicom
 minicom -b 9600 -D /dev/ttyUSB0
 ```
-Then Ctrl+A to access minicom menu press L key and choose you file name to launch logging in a file
-Ctrl+A Q to quit minicom
+Then Ctrl-A Z to access minicom menu press L key and choose you file name to launch logging in a file
+Ctrl-A Q to quit minicom
 
 
     
