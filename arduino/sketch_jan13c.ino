@@ -73,13 +73,13 @@ void loop() {
 
 
   // Afficher les données dans le moniteur série
-  Serial.print("Température: ");
+  Serial.print("Temperature:");
   Serial.print(temperature);
-  Serial.print("°C, DO: ");
+  Serial.print("Celsius;DO:");
   Serial.print(DO_value);
-  Serial.print("mg/L, DO Saturé: ");
+  Serial.print("mg/L;DO_concentration:");
   Serial.print(DO_saturation);
-  Serial.println("%");
+  Serial.println("percents");
 
   // Attendre avant la prochaine lecture
   delay(1000);  // Ajuster le délai si nécessaire
