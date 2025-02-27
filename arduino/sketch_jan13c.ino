@@ -66,21 +66,21 @@ void loop() {
   // Lire la valeur DO saturée à l'adresse 0x0102
   result = node.readHoldingRegisters(0x0102, 1);  // Adresse 0x0102
   if (result == node.ku8MBSuccess) {
-    DO_saturation = node.getResponseBuffer(0x00) / 100.0f;  // En mg/L
+    DO_saturation = node.getResponseBuffer(0x00) / 10.0f;  // En mg/L
   } else {
     Serial.println("Erreur lors de la lecture de DO saturé");
   }
 
 
   // Afficher les données dans le moniteur série
-  Serial.print("Temperature:");
+  Serial.print("Température: ");
   Serial.print(temperature);
-  Serial.print("Celsius;DO:");
+  Serial.print("°C, DO: ");
   Serial.print(DO_value);
-  Serial.print("mg/L;DO_concentration:");
+  Serial.print("mg/L, DO Saturé: ");
   Serial.print(DO_saturation);
-  Serial.println("percents");
-
+  Serial.println("%");
+  
   // Attendre avant la prochaine lecture
   delay(1000);  // Ajuster le délai si nécessaire
 }
