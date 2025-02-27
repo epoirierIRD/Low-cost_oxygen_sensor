@@ -470,7 +470,7 @@ Ctrl-A Q to quit minicom
 # To check that the time of your linux machine logging the seeed probe data is correct compred with http://time.is
 date
 ```
-
+We estimate around 80mg /L of sodium sulfite Na2SO3 to remove totally oxygen. Correct number is 65.4mg /L
     
     
 
