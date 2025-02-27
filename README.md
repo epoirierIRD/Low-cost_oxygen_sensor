@@ -466,6 +466,10 @@ minicom -b 9600 -D /dev/ttyUSB0
 Then Ctrl-A Z to access minicom menu press L key and choose you file name to launch logging in a file
 Ctrl-A Q to quit minicom
 
+```Bash
+# To check that the time of your linux machine logging the seeed probe data is correct compred with http://time.is
+date
+```
 
     
     
