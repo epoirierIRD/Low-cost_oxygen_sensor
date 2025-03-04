@@ -1,0 +1,16 @@
+below are the bash script commands to convert the temperature_log.txt file logged with python program log_seeedprobe_data2file.py
+
+$strings temperature_log.txt > cleaned_file.txt
+
+$sed ':a;N;$!ba;s/\n/ /g' cleaned_file.txt | sed 's/\(Temp\)rature/\1rature/' > output.txt
+
+$sed 's/% /%\'$'\n/g' output.txt > output2.txt
+
+outputs 
+2025-01-21 11:52:45, Temp rature: 20.90 C, DO: 9.28mg/L, DO Satur : 104.00%
+2025-01-21 11:52:46, Temp rature: 20.90 C, DO: 9.28mg/L, DO Satur : 104.00%
+2025-01-21 11:52:47, Temp rature: 20.90 C, DO: 9.28mg/L, DO Satur : 104.00%
+
+delete first line of the file
+
+You can use this new file output2.txt in the python script provided in the comparison test folders DO_compare_AAAAMMJJ.py
