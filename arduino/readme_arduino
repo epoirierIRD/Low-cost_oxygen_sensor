@@ -1,4 +1,4 @@
-Oxigeno_... is the code from the mexicans colleagues.
-sketch_dec16a.ino is a code adapted by e poirier to read the data from the sensor
+Oxigeno_... is the code from the mexicans/peruvian colleagues.
+sketch_dec16a.ino is a code adapted by e poirier to read the data from the sensor. That is tthe one to use together with the .py code to store the data in a file.
 
-pasSerial1.ino is the code to install on the arduino to send the UART frome the DFRobot card to the USB
+pasSerial1.ino is the code to install on the arduino to send the UART from the DFRobot card to the USB. To be used when running node-red
