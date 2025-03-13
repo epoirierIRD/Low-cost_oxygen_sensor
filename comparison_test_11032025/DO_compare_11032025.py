@@ -17,10 +17,64 @@ import matplotlib.dates as mdates
 import os
 from io import StringIO
 import re
-from numpy.polynomial.polynomial import Polynomial
-from sklearn.metrics import r2_score
 
 # Fonctions called in the main
+
+#parser to read the minidot data coming from epoirierIRD rep github
+
+def readminidot(path, start1, end1):
+     
+    # args
+    # path: path of your file
+    # start1 = datetime(2023,5,23,9,30,00); start of period of interest
+    # end1 = datetime(2023,5,23,11,25,00); end of period of interest
+    
+    #output
+    # a data frame with the data of the selected period
+    
+    # ************************************************************************************
+    # This code is to read a raw data file recorded by a PME MiniDOT logger
+    # It is not made to read a concatenated file 
+    # download the file raw_minidot_data.txt from this repo and save it on your machine
+    # then put the right path to it in the line path =
+    
+    # path to the raw data file on your machine
+    
+    # df is a dataframe created with all the columns from raw_minidot_data.txt
+    # careful for row value in header=row. The row counts starts at row 0
+    df = pd.read_csv(path, header=2, delimiter=',', index_col=0)
+    
+    # convert the index times from unix seconds to date time objects with the format AAAA-MM-DD HH:MM:SS
+    df.index = pd.to_datetime(df.index, unit='s')
+    
+    # plot the column number you want to see (watch out, number of first column is 0)
+    # [0] column 0 is the battery voltage in Volts
+    # [1] column 1 is the dissolved oxygen in mg/l
+    # [2] column 2 is the temperature in °C
+    df.plot(y=df.columns[2], style='.-', markevery=5)
+    
+    # show the first lines of the df dataframe
+    print(df.head())
+    # show the last lines of the df dataframe
+    print(df.tail())
+    # show the basic statistics of all columns of the dataframe
+    print(df.describe())
+    
+    # ****************************************************************************
+    
+    # This code is to select a period of the data between tow chosen times
+    # It is helpful if you want to "zoom in" on some data of interest
+    
+    
+    # this shorten the df dataframe into a smaller one called dfs
+    # containig the data of interest
+    dfs = df[start1 : end1]
+    # plot your data of interest
+    dfs.plot(y=dfs.columns[2], style='.-', markevery=5)
+    plt.show()
+    
+    return dfs
+
 
 # parser to read the wtw data
 
@@ -133,47 +187,6 @@ def plot_ref_instru(start, stop, dfr, varr, labelr, dfi, vari, labeli, title, xl
     
     # Show plot
     plt.show()
-    
-    # Return Dfr
-    return [dfr,dfi]
-    
-# fonction pour l'ajustement polynomial from chatgpt
-
-def calibrate_sensor(dfr, dfi, ref_col, inst_col, degree=1):
-    """
-    Calibre une sonde de moins bonne qualité en ajustant un polynôme
-    pour correspondre aux données de référence.
-    
-    Paramètres:
-    - dfr : DataFrame contenant les données de référence
-    - dfi : DataFrame contenant les données de l'instrument à calibrer
-    - ref_col : Nom de la colonne contenant les valeurs de référence
-    - inst_col : Nom de la colonne contenant les valeurs à corriger
-    - degree : int, degré du polynôme (3 ou 4 recommandé)
-    
-    Retourne:
-    - coeffs : coefficients du polynôme d'ajustement
-    - calibrated_values : valeurs ajustées selon le polynôme
-    - r2 : coefficient de détermination R²
-    """
-    # Fusionner les DataFrames sur les index (ou une clé commune si nécessaire)
-    df = pd.merge(dfr, dfi, left_index=True, right_index=True)
-    
-    # Extraire les valeurs
-    reference = df[ref_col].values
-    measured = df[inst_col].values
-    
-    # Ajustement du polynôme
-    coeffs = np.polyfit(measured, reference, degree)
-    poly = np.poly1d(coeffs)
-    df['calibrated'] = poly(measured)
-    
-    # Calcul du R²
-    r2 = r2_score(reference, df['calibrated'])
-    
-    return coeffs, df, r2
-
-
 
 ############################################################################################################
 
@@ -182,84 +195,22 @@ def calibrate_sensor(dfr, dfi, ref_col, inst_col, degree=1):
 # ref_csv = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp1/wtw_ref_data.CSV'
 # instru_txt = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp1/SEEEDProbe_raw_data.txt'
 # exp2
-ref_csv = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_04032025/exp1/wtw_ref_data.CSV'
-instru_txt = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_04032025/exp1/seeed_probe_data.txt'
+ref_csv = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_11032025/wtw_ref_data.CSV'
+instru_txt = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_11032025/seeedprobe_data_exp1.txt'
 
 
 # Read the csv/txt files of the ref and instru to compare and create a df for each
 dfr = read_wtw_file_from_multi3630(ref_csv)
 dfi = read_raw_seeed_logging(instru_txt)
-liste = plot_ref_instru(  
-    
-    datetime(2025, 3, 4, 10,3,0),
-    datetime(2025, 3, 4, 11,40,0),
-    
-    dfr,
-    'Value',
-    'WTW DO sat(%)',
-    dfi,
-    'DO_satur',
-    'SeeedStudio probe DO saturation(%)',
-    '2025-03-04, Comparison test WTW against SeeedStudio S/N 24100906',
-    'Time(HL)',
-    'DO saturation(%)')
 
 
-#### Polyfit
-
-# Exemple d'utilisation avec des données fictives
-if __name__ == "__main__":
-    # Génération de données simulées
-    # np.random.seed(42)
-    # dfr = pd.DataFrame({'reference': np.linspace(0, 10, 50)})
-    # dfi = pd.DataFrame({'instrument': dfr['reference'] + np.random.normal(0, 0.5, size=50)})
-    
-    
-    
-    # Calibration
-    coeffs, df_calibrated, r2 = calibrate_sensor(liste[0], liste[1], 'Value', 'DO_satur', degree=3)
-    
-    # Affichage des résultats
-    plt.scatter(df_calibrated['DO_satur'], df_calibrated['Value'], label="Données brutes", color='red')
-    plt.scatter(df_calibrated['DO_satur'], df_calibrated['calibrated'], label="Données calibrées", color='blue')
-    plt.xlabel("Sonde brute")
-    plt.ylabel("Sonde de référence")
-    plt.legend()
-    plt.title(f"Calibration de la sonde avec un polynôme de degré 3 (R²={r2:.4f})")
-    plt.show()
-    
-    print("Coefficients du polynôme d'ajustement:", coeffs)
-    print(f"Coefficient de détermination R²: {r2:.4f}")
-
-
-plot_ref_instru(  
-    
-    datetime(2025, 3, 4, 10,3,0),
-    datetime(2025, 3, 4, 11,40,0),
-    
-    dfr,
-    'Value',
-    'WTW DO sat(%)',
-    df_calibrated,
-    'calibrated',
-    'SeeedStudio probe DO saturation(%) after polynomial correction',
-    '2025-03-04, SeeedStudio S/N 24100906 data after polynomail correction',
-    'Time(HL)',
-    'DO saturation(%)')
-
-
-
-
-
-
-'''
 # Plot ref and instru variables of interest on the same graph
 # DO (mg/L)
 plot_ref_instru(    
     
-    # palier 100%
-    datetime(2025, 1, 21, 12,00,00),
-    datetime(2025, 1, 21, 12,12,18),
+    # 
+    datetime(2025, 3, 11, 10,56,0),
+    datetime(2025, 3, 11, 11,10,0),
     
     dfr,
     'Value',
@@ -271,15 +222,15 @@ plot_ref_instru(
     'Time(HL)',
     'DO(mg/L)')
 
-'''
 
 '''
+
 # DO saturation (%)
 plot_ref_instru(
     
     
-    datetime(2025, 3, 4, 10,3,0),
-    datetime(2025, 3, 4, 12,15,0),
+    datetime(2025, 3, 11, 10,30,0),
+    datetime(2025, 3, 11, 11,30,0),
     
     
     
@@ -289,7 +240,7 @@ plot_ref_instru(
     dfi,
     'DO_satur',
     'SeeedStudio probe DO saturation(%)',
-    '2025-03-04, Comparison test WTW against SeeedStudio S/N 24100906',
+    '2025-01-21, Comparison test WTW against SeeedStudio S/N 24100906',
     'Time(HL)',
     'DO saturation(%)')
 '''

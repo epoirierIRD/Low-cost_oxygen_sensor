@@ -139,7 +139,7 @@ def plot_ref_instru(start, stop, dfr, varr, labelr, dfi, vari, labeli, title, xl
     
 # fonction pour l'ajustement polynomial from chatgpt
 
-def calibrate_sensor(dfr, dfi, ref_col, inst_col, degree=1):
+def calibrate_sensor(dfr, dfi, ref_col, inst_col, degree=3):
     """
     Calibre une sonde de moins bonne qualité en ajustant un polynôme
     pour correspondre aux données de référence.
@@ -154,7 +154,6 @@ def calibrate_sensor(dfr, dfi, ref_col, inst_col, degree=1):
     Retourne:
     - coeffs : coefficients du polynôme d'ajustement
     - calibrated_values : valeurs ajustées selon le polynôme
-    - r2 : coefficient de détermination R²
     """
     # Fusionner les DataFrames sur les index (ou une clé commune si nécessaire)
     df = pd.merge(dfr, dfi, left_index=True, right_index=True)
@@ -182,8 +181,8 @@ def calibrate_sensor(dfr, dfi, ref_col, inst_col, degree=1):
 # ref_csv = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp1/wtw_ref_data.CSV'
 # instru_txt = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp1/SEEEDProbe_raw_data.txt'
 # exp2
-ref_csv = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_04032025/exp1/wtw_ref_data.CSV'
-instru_txt = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_04032025/exp1/seeed_probe_data.txt'
+ref_csv = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_04032025/exp2/wtw_ref_data.CSV'
+instru_txt = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_04032025/exp2/seeed_probe_data.txt'
 
 
 # Read the csv/txt files of the ref and instru to compare and create a df for each
@@ -191,8 +190,9 @@ dfr = read_wtw_file_from_multi3630(ref_csv)
 dfi = read_raw_seeed_logging(instru_txt)
 liste = plot_ref_instru(  
     
-    datetime(2025, 3, 4, 10,3,0),
-    datetime(2025, 3, 4, 11,40,0),
+    datetime(2025, 3, 4, 11,55,0),
+    # 12:36:34, heure du saut
+    datetime(2025, 3, 4, 12,36,34),
     
     dfr,
     'Value',
@@ -217,7 +217,7 @@ if __name__ == "__main__":
     
     
     # Calibration
-    coeffs, df_calibrated, r2 = calibrate_sensor(liste[0], liste[1], 'Value', 'DO_satur', degree=3)
+    coeffs, df_calibrated, r2 = calibrate_sensor(liste[0], liste[1], 'Value', 'DO_satur', degree=1)
     
     # Affichage des résultats
     plt.scatter(df_calibrated['DO_satur'], df_calibrated['Value'], label="Données brutes", color='red')
@@ -225,7 +225,7 @@ if __name__ == "__main__":
     plt.xlabel("Sonde brute")
     plt.ylabel("Sonde de référence")
     plt.legend()
-    plt.title(f"Calibration de la sonde avec un polynôme de degré 3 (R²={r2:.4f})")
+    plt.title(f"Calibration de la sonde avec un polynôme de degré 1 (R²={r2:.4f})")
     plt.show()
     
     print("Coefficients du polynôme d'ajustement:", coeffs)
@@ -234,8 +234,8 @@ if __name__ == "__main__":
 
 plot_ref_instru(  
     
-    datetime(2025, 3, 4, 10,3,0),
-    datetime(2025, 3, 4, 11,40,0),
+    datetime(2025, 3, 4, 11,55,0),
+    datetime(2025, 3, 4, 12,36,34),
     
     dfr,
     'Value',

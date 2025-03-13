@@ -1,4 +1,3 @@
-2025-03-06 15:11:53,  Communication Modbus initialis 2025-03-06 15:11:53, Temp rature: 21.60 C, DO: 7.87mg/L, DO Satur : 89.40%
 2025-03-06 15:11:55, Temp rature: 21.60 C, DO: 7.87mg/L, DO Satur : 89.40%
 2025-03-06 15:11:56, Temp rature: 21.60 C, DO: 7.87mg/L, DO Satur : 89.40%
 2025-03-06 15:11:57, Temp rature: 21.60 C, DO: 7.87mg/L, DO Satur : 89.40%

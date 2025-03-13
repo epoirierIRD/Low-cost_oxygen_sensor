@@ -1,4 +1,3 @@
-2025-03-11 11:30:25,  2025-03-11 11:30:26, Communication Modbus initialis 2025-03-11 11:30:26, Temp rature: 20.50 C, DO: 0.07mg/L, DO Satur : 0.70%
 2025-03-11 11:30:27, Temp rature: 20.50 C, DO: 0.05mg/L, DO Satur : 0.50%
 2025-03-11 11:30:28, Temp rature: 20.50 C, DO: 0.05mg/L, DO Satur : 0.50%
 2025-03-11 11:30:29, Temp rature: 20.50 C, DO: 0.04mg/L, DO Satur : 0.40%
