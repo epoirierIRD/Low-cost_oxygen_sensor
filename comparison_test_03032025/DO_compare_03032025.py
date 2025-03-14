@@ -131,6 +131,8 @@ def plot_ref_instru(start, stop, dfr, varr, labelr, dfi, vari, labeli, title, xl
     
     # Show plot
     plt.show()
+    
+    return dfi
 
 ############################################################################################################
 
@@ -167,7 +169,7 @@ plot_ref_instru(
     'DO(mg/L)')
 
 '''
-
+'''
 
 # DO saturation (%)
 plot_ref_instru(
@@ -192,11 +194,11 @@ plot_ref_instru(
 '''
 
 # DO probe temp (°C)
-plot_ref_instru(
+dfi = plot_ref_instru(
       
     # total
-    datetime(2025, 2, 27, 16,20,0),
-    datetime(2025, 2, 27, 16,58,0),
+    datetime(2025, 3, 3, 13,10,0),
+    datetime(2025, 3, 3, 13,36,0),
 
     
     dfr,
@@ -205,9 +207,8 @@ plot_ref_instru(
     dfi,
     'temperature',
     'SeeedStudio probe Temperature (°C)',
-    '2025-01-14, Comparison test WTW against SeeedStudio S/N 24100906',
+    '2025-03-03, Comparison test WTW against SeeedStudio S/N 24100906',
     'Time(HL)',
     'Temperature(°C)')
 
-'''
 

@@ -131,25 +131,37 @@ def plot_ref_instru(start, stop, dfr, varr, labelr, dfi, vari, labeli, title, xl
     
     # Show plot
     plt.show()
+    
+    return dfi, dfr
 
 ############################################################################################################
 
 # Main
-ref_csv = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/comparison_test_21012025/wtw_ref_data.txt'
-instru_txt = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/comparison_test_21012025/converted_seeed_probe.txt'
+'''
+ref_csv = '/home/epoirier/Documents/PROJETS/2024/oxygen_probe_seeedstudio/comparison_test_21012025/wtw_ref_data.txt'
+instru_txt = '/home/epoirier/Documents/PROJETS/2024/oxygen_probe_seeedstudio/comparison_test_21012025/converted_seeed_probe.txt'
+'''
+
+ref_csv = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_20250121/wtw_ref_data.txt'
+instru_txt = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_20250121/converted_seeed_probe.txt'
+
+
 
 # Read the csv/txt files of the ref and instru to compare and create a df for each
 dfr = read_wtw_file_from_multi3630(ref_csv)
 dfi = read_raw_seeed_logging(instru_txt)
 
-'''
+
 # Plot ref and instru variables of interest on the same graph
 # DO (mg/L)
-plot_ref_instru(    
+dfi, dfr = plot_ref_instru(    
     
     # palier 100%
-    datetime(2025, 1, 21, 12,00,00),
-    datetime(2025, 1, 21, 12,12,18),
+    # datetime(2025, 1, 21, 12,6,00),
+    # datetime(2025, 1, 21, 12,12,18),
+    # palier 0%
+    datetime(2025,1, 21, 12,25,19),
+    datetime(2025,1, 21, 12,29,9),
     
     dfr,
     'Value',
@@ -157,22 +169,24 @@ plot_ref_instru(
     dfi,
     'DO',
     'SeeedStudio probe DO(mg/L)',
-    '2025-01-14, Comparison test WTW against SeeedStudio S/N 24100906',
+    '2025-01-21, Comparison test WTW against SeeedStudio S/N 24100906',
     'Time(HL)',
     'DO(mg/L)')
 
-'''
 
 '''
+
 # DO saturation (%)
 plot_ref_instru(
-    
+    # palier 100%
+   datetime(2025, 1, 21, 12,00,00),
+   datetime(2025, 1, 21, 12,12,18),
     # # slope decreasing  
     # datetime(2025,1, 21, 12,12,19),
     # datetime(2025,1, 21, 12,29,9),
     # palier 0%
-    datetime(2025,1, 21, 12,25,19),
-    datetime(2025,1, 21, 12,29,9),
+    # datetime(2025,1, 21, 12,25,19),
+    #datetime(2025,1, 21, 12,29,9),
     
     
     
@@ -185,9 +199,9 @@ plot_ref_instru(
     '2025-01-21, Comparison test WTW against SeeedStudio S/N 24100906',
     'Time(HL)',
     'DO saturation(%)')
+
 '''
-
-
+'''
 
 # DO probe temp (°C)
 plot_ref_instru(
@@ -207,5 +221,5 @@ plot_ref_instru(
     'Time(HL)',
     'Temperature(°C)')
 
-
+'''
 

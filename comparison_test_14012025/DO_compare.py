@@ -146,13 +146,18 @@ def plot_ref_instru(start, stop, dfr, varr, labelr, dfi, vari, labeli, title, xl
 ############################################################################################################
 
 # Main
+"""
 ref_csv = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/comparison_test_16012025/WTW_ref_data.csv'
 instru_txt = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/comparison_test_16012025/DO_probe_data.txt'
+"""
+ref_csv = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_14012025/WTW_ref_data.csv'
+instru_txt = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_14012025/DO_probe_data.txt'
+
 
 # Read the csv/txt files of the ref and instru to compare and create a df for each
 dfr = read_wtw(ref_csv)
 dfi = read_serial_monitor(instru_txt,'2025-01-14')
-
+'''
 
 # Plot ref and instru variables of interest on the same graph
 # DO (mg/L)
@@ -185,7 +190,7 @@ plot_ref_instru(
     '2025-01-14, Comparison test WTW against SeeedStudio S/N 24100906',
     'Time(HL)',
     'DO(mg/L)')
-
+'''
 '''
 # DO saturation (%)
 plot_ref_instru(
@@ -218,13 +223,13 @@ plot_ref_instru(
     'Time(HL)',
     'DO saturation(%)')
 '''
-'''
+
 # DO probe temp (°C)
 plot_ref_instru(
       
     # in 0%
-    # datetime(2025, 1, 14, 15,51,00),
-    # datetime(2025, 1, 14, 15,53,20),
+     datetime(2025, 1, 14, 15,51,00),
+    datetime(2025, 1, 14, 15,53,20),
     # in 100%
     # datetime(2025, 1, 14, 15,58,00),
     # datetime(2025, 1, 14, 16,2,00),
@@ -250,7 +255,7 @@ plot_ref_instru(
     'Time(HL)',
     'Temperature(°C)')
 
-'''
+
 '''
 #################################################################################################################################
 # Chargement des données
