@@ -220,12 +220,12 @@ if __name__ == "__main__":
     coeffs, df_calibrated, r2 = calibrate_sensor(liste[0], liste[1], 'Value', 'DO_satur', degree=1)
     
     # Affichage des résultats
-    plt.scatter(df_calibrated['DO_satur'], df_calibrated['Value'], label="Données brutes", color='red')
-    plt.scatter(df_calibrated['DO_satur'], df_calibrated['calibrated'], label="Données calibrées", color='blue')
-    plt.xlabel("Sonde brute")
-    plt.ylabel("Sonde de référence")
+    plt.scatter(df_calibrated['DO_satur'], df_calibrated['Value'], label="WTW DO sat(%)", color='red')
+    plt.scatter(df_calibrated['DO_satur'], df_calibrated['calibrated'], label="Corrected_SEEEDProbe_data", color='blue')
+    plt.xlabel("Seeedstudio probe DO saturation(%)")
+    plt.ylabel("WTW DO Sat. (%)")
     plt.legend()
-    plt.title(f"Calibration de la sonde avec un polynôme de degré 1 (R²={r2:.4f})")
+    plt.title(f"Corrected SEEEDstudio Sat. with polynomial function (degree=1) (R²={r2:.4f})")
     plt.show()
     
     print("Coefficients du polynôme d'ajustement:", coeffs)
@@ -243,7 +243,7 @@ plot_ref_instru(
     df_calibrated,
     'calibrated',
     'SeeedStudio probe DO saturation(%) after polynomial correction',
-    '2025-03-04, SeeedStudio S/N 24100906 data after polynomail correction',
+    '2025-03-04, SeeedStudio S/N 24100906 data after polynomial correction',
     'Time(HL)',
     'DO saturation(%)')
 
