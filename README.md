@@ -1,7 +1,8 @@
+# WORK IN PROGRESS
 # Low-cost DO oxygen sensor from SEEED Studio, Senscap
 
 This project starts with a first objective: to interface a SEEED studio low-cost oxygen probe and verify its metrologic specs. It means calibrate the probe and check its performances regarding the manufacturer specs and a reference
-optode on at least 3 levels: 0% stauration O2, 50% and 100%.
+optode and check its performances (biais and dispersion regarding reference probe) at least at 3 levels of DO: 0% stauration O2, 50% and 100%.
 
 - First step is to interface this RS485 probe to a computer and get decent data
 - Post-it for connecting probe cables on UART gravity module DFR0845
@@ -352,7 +353,7 @@ Data files from WTW and Seeed studio probe to be found in comparison_test_140120
 
   - Dynamic portions observed:
     
-    - 2025-01-14;15:51:00 -> 15:53:20 ;probe immerged in 0 % sol, observing the decreasing of DO. Phase 1
+    - 2025-01-14;15:51:00 -> 15:53:20 ;probe immerged in 0 % sol, observing the decreasing of DO. Phase 1
         - 15:52:00 DO probe - DO WTW = -1.2 mg/L << -0.4mg/L (specs) => not good
         - 15:52:30 DO probe - DO WTW = -0.3 mg/L > -0.4mg/L (specs) = good
       **Concluison3: As we approach the 0% the diffrence probe - ref decreases as per the conclusion 2 above.
@@ -363,7 +364,7 @@ Data files from WTW and Seeed studio probe to be found in comparison_test_140120
       ![screenshot](Imagefolder/DOsat_phase1.png)
       ![screenshot](Imagefolder/temp_phase1.png) 
       
-    - 2025-01-14;15:59:19 -> 16:02:00 ;probe in 100 % sol, observing the increasing of DO. Phase 2
+    - 2025-01-14;15:59:19 -> 16:02:00 ;probe in 100 % sol, observing the increasing of DO. Phase 2
       **Conclusion4: Even if this is not very stable in terms of T°C and DO(mg/L), the DO concentration data are not noisy.
       No data were recorded for the WTW in DO concentration.
       However DO saturation data show a big biais in this portion. The SEEED probe seem to response faster.
