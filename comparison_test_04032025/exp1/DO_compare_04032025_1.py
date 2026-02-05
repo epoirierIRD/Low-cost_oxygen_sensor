@@ -193,6 +193,8 @@ liste = plot_ref_instru(
     
     datetime(2025, 3, 4, 10,3,0),
     datetime(2025, 3, 4, 11,40,0),
+    # datetime(2025, 3, 4, 9,50,20),
+    # datetime(2025, 3, 4, 11,1,50),
     
     dfr,
     'Value',
@@ -220,12 +222,12 @@ if __name__ == "__main__":
     coeffs, df_calibrated, r2 = calibrate_sensor(liste[0], liste[1], 'Value', 'DO_satur', degree=3)
     
     # Affichage des résultats
-    plt.scatter(df_calibrated['DO_satur'], df_calibrated['Value'], label="Données brutes", color='red')
-    plt.scatter(df_calibrated['DO_satur'], df_calibrated['calibrated'], label="Données calibrées", color='blue')
-    plt.xlabel("Sonde brute")
-    plt.ylabel("Sonde de référence")
+    plt.scatter(df_calibrated['DO_satur'], df_calibrated['Value'], label="WTW_Reference_data", color='red')
+    plt.scatter(df_calibrated['DO_satur'], df_calibrated['calibrated'], label="Corrected_SEEEDProbe_data", color='blue')
+    plt.xlabel("SeeedStudio probe DO saturation(%)")
+    plt.ylabel("WTW DO sat. (%)")
     plt.legend()
-    plt.title(f"Calibration de la sonde avec un polynôme de degré 3 (R²={r2:.4f})")
+    plt.title(f"Corrected SEEEDstudio Sat. with polynomial function (degree=3) (R²={r2:.4f})")
     plt.show()
     
     print("Coefficients du polynôme d'ajustement:", coeffs)
@@ -234,8 +236,12 @@ if __name__ == "__main__":
 
 plot_ref_instru(  
     
+    
     datetime(2025, 3, 4, 10,3,0),
     datetime(2025, 3, 4, 11,40,0),
+    
+    # datetime(2025, 3, 4, 10,1,30),
+    # datetime(2025, 3, 4, 10,1,50),
     
     dfr,
     'Value',

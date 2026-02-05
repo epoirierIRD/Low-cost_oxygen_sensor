@@ -131,6 +131,8 @@ def plot_ref_instru(start, stop, dfr, varr, labelr, dfi, vari, labeli, title, xl
     
     # Show plot
     plt.show()
+    
+    return dfi, dfr
 
 ############################################################################################################
 
@@ -139,9 +141,13 @@ def plot_ref_instru(start, stop, dfr, varr, labelr, dfi, vari, labeli, title, xl
 # ref_csv = 'Exp1/wtw_ref_data.CSV'
 # instru_txt = 'Exp1/SEEEDProbe_raw_data.txt'
 # exp2
-ref_csv = 'Exp2/WTW_ref_data.CSV'
-instru_txt = 'Exp2/SEEEProbe_raw_data.txt'
 
+'''
+ref_csv = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp2/WTW_ref_data.CSV'
+instru_txt = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp2/SEEEProbe_raw_data.txt'
+'''
+ref_csv = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_27022025/Exp2/WTW_ref_data.CSV'
+instru_txt = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_27022025/Exp2/SEEEProbe_raw_data.txt'
 
 # Read the csv/txt files of the ref and instru to compare and create a df for each
 dfr = read_wtw_file_from_multi3630(ref_csv)
@@ -170,11 +176,11 @@ plot_ref_instru(
 
 
 # DO saturation (%)
-plot_ref_instru(
+dfi, dfr = plot_ref_instru(
     
     
-    datetime(2025, 2, 27, 16,20,0),
-    datetime(2025, 2, 27, 16,35,0),
+    datetime(2025, 2, 27, 16,26,30),
+    datetime(2025, 2, 27, 16,29,30),
     
     
     
@@ -184,7 +190,7 @@ plot_ref_instru(
     dfi,
     'DO_satur',
     'SeeedStudio probe DO saturation(%)',
-    '2025-01-21, Comparison test WTW against SeeedStudio S/N 24100906',
+    '2025-02-27, Comparison test WTW against SeeedStudio S/N 24100906',
     'Time(HL)',
     'DO saturation(%)')
 
