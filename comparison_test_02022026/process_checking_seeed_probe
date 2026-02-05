@@ -1,0 +1,27 @@
+janv 2026
+
+- installer le script passserial.... via arduino dernière ide sur la board mega 2650
+- set correct time of your linux machine
+- set correct time of the wtw
+- make sure your do probe is well calibrated
+- calibtare T, DO 0% end then 100%
+- calibrate the probe using node red
+- then use the program modbus_minO28...py to log the data
+- press i sur WTW pour voir si la compensation en S est activée
+- press STO__ pour activer l'enregistrement automatique
+
+
+02 fev 2026
+- ok identification que le saut dans les données a disparu
+- calibration faite slope 0.98
+
+14:15 UTC démarrage des enregistremenst, deux appareils à l'heure
+SP ne descend pas à 0.0 mais plafonne à 0.3%
+14:19 starting pouring 100% water in
+14:30, fin du deuxième palier à 16%
+14:37 fin du palier à 21.6% WTW
+passage au mg/L
+14:46, fin du palier 3.2mg/L WTW, biais mesuré: +1.5mg/L envi
+14:57, fin palier 4.70mg/L WTW biais mesuré +1.75mg/L
+15:07 fin palier 7.74 mg/L WTW mais il y a eu un arrêt du WTW à cause des piles biais mesuré +1.7 mg/L
+15:21 fin du palier à 7.07 mg/L WTW biais 1.3mg/L

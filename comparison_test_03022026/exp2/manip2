@@ -1,0 +1,14 @@
+nouveau test de desoxygenation post correction
+14:55 acclimatation en T°C
+pour atteindre 18.4°C
+eau assez froide issue du mq, le capteur wtw converge bcp plus vite
+14:59 sulfite largué.
+je vois que le biais augmente avec le temps
+
+les données seeed de cette manip étaient corrigées avec des coeff et un polynome calculés au préalable
+: # calibration coeff sensor 25082804
+# after desoxygenation of 03-02-2026 experiment
+coeffs=np.array([0.04579253, 0.53543994, 0.21359762])
+
+et pourtant ça ne suffit pas à obtenir des données correctes.
+

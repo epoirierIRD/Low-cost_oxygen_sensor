@@ -19,7 +19,7 @@ client1.serial.bytesize = 8
 client1.serial.parity   = serial.PARITY_NONE
 client1.serial.stopbits = 1
 client1.serial.timeout  = 0.1      # seconds
-client1.address         = 55        # this is the slave address number
+client1.address         = 4        # this is the slave address number
 client1.mode = minimalmodbus.MODE_RTU # rtu or ascii mode
 client1.clear_buffers_before_each_transaction = True
 #
@@ -53,7 +53,7 @@ def correct_oxy_sens_values(oxy_sens_values):
 	- temperature (divided by 10),
 	- dissolved oxygen (DO, divided by 100),
 	- oxygen saturation (SatO2, divided by 100).
-
+get +5V on usb A
 	Parameters:
 	oxy_sens_values (list): A list of sensor values. The list must contain at least 3 elements.
 	        [Temp, DO, SatO2].
@@ -173,7 +173,7 @@ def set_baudrate(baudrate):
 	
 #reset_sensor()
 
-#set_sensor_add(55)
+# set_sensor_add(4)
 
 #toto = calibrate_temp(22)
 #print("calibration slope is " + str(toto))
@@ -198,7 +198,6 @@ while True :
 	with open("datalog.csv", "a") as f:
    		f.write(line_to_write)
 	sleep(1)
-
 
 
 

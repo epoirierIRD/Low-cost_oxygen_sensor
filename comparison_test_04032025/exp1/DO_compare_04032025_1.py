@@ -182,8 +182,8 @@ def calibrate_sensor(dfr, dfi, ref_col, inst_col, degree=1):
 # ref_csv = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp1/wtw_ref_data.CSV'
 # instru_txt = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp1/SEEEDProbe_raw_data.txt'
 # exp2
-ref_csv = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_04032025/exp1/wtw_ref_data.CSV'
-instru_txt = '/home/epoirier1/Documents/PROJETS/2024/oxygen_probe_seeedstudio/github_project/Low-cost_oxygen_sensor/comparison_test_04032025/exp1/seeed_probe_data.txt'
+ref_csv = 'wtw_ref_data.CSV'
+instru_txt = 'seeed_probe_data.txt'
 
 
 # Read the csv/txt files of the ref and instru to compare and create a df for each

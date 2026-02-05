@@ -136,11 +136,11 @@ def plot_ref_instru(start, stop, dfr, varr, labelr, dfi, vari, labeli, title, xl
 
 # Main
 # exp1
-# ref_csv = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp1/wtw_ref_data.CSV'
-# instru_txt = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp1/SEEEDProbe_raw_data.txt'
+# ref_csv = 'Exp1/wtw_ref_data.CSV'
+# instru_txt = 'Exp1/SEEEDProbe_raw_data.txt'
 # exp2
-ref_csv = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp2/WTW_ref_data.CSV'
-instru_txt = '/home/epoirier/Documents/Projets/SEEEDstudio_DOProbe/Low-cost_oxygen_sensor/comparison_test_27022025/Exp2/SEEEProbe_raw_data.txt'
+ref_csv = 'Exp2/WTW_ref_data.CSV'
+instru_txt = 'Exp2/SEEEProbe_raw_data.txt'
 
 
 # Read the csv/txt files of the ref and instru to compare and create a df for each

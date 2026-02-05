@@ -352,7 +352,7 @@ Data files from WTW and Seeed studio probe to be found in comparison_test_140120
 
   - Dynamic portions observed:
     
-    - 2025-01-14;15:51:00 -> 15:53:20 ;probe immerged in 0 % sol, observing the decreasing of DO. Phase 1
+    - 2025-01-14;15:51:00 -> 15:53:20 ;probe immerged in 0 % sol, observing the decreasing of DO. Phase 1
         - 15:52:00 DO probe - DO WTW = -1.2 mg/L << -0.4mg/L (specs) => not good
         - 15:52:30 DO probe - DO WTW = -0.3 mg/L > -0.4mg/L (specs) = good
       **Concluison3: As we approach the 0% the diffrence probe - ref decreases as per the conclusion 2 above.
@@ -363,7 +363,7 @@ Data files from WTW and Seeed studio probe to be found in comparison_test_140120
       ![screenshot](Imagefolder/DOsat_phase1.png)
       ![screenshot](Imagefolder/temp_phase1.png) 
       
-    - 2025-01-14;15:59:19 -> 16:02:00 ;probe in 100 % sol, observing the increasing of DO. Phase 2
+    - 2025-01-14;15:59:19 -> 16:02:00 ;probe in 100 % sol, observing the increasing of DO. Phase 2
       **Conclusion4: Even if this is not very stable in terms of T°C and DO(mg/L), the DO concentration data are not noisy.
       No data were recorded for the WTW in DO concentration.
       However DO saturation data show a big biais in this portion. The SEEED probe seem to response faster.
@@ -471,6 +471,16 @@ Ctrl-A Q to quit minicom
 date
 ```
 We estimate around 80mg /L of sodium sulfite Na2SO3 to remove totally oxygen. Correct number is 65.4mg /L
+
+## 05/02/2026, Various tests on new DO probes 25082803 and 25082804
+
+Found that:
+- data jump at 2.7mg/L does not exist any more. It has been fixed by manufacturer on this new version
+- some tests have been done on probe 25082804. polynomial in line correction has to implemented. Not satisfying for the moment.
+- sueccessfull test with wiring 2 DO probes on a splitter + DFR0845 + seeduino.
+The key is to provide 12V power to the DFRobot module
+Notice that there is no need to plug the master at the one end terminus of the splitter.
+- coming soon, test with jonathan to achievve stable DO levels using nitrogen gas
     
     
 
