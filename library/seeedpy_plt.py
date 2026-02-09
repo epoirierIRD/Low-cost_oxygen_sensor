@@ -245,4 +245,31 @@ def calibrate_sensor(dfr, dfi, ref_col, inst_col, degree=1):
     
     return coeffs, df, r2
 
+# %%
+
+def plot_DO_probes(csv_file, sensors=[3, 4], value_col='do_corrected_mgL'):
+    """
+    Plots the specified sensors on the same graph.
+    
+    csv_file: path to CSV log
+    sensors: list of sensor addresses to plot
+    value_col: column to plot (default: corrected DO)
+    """
+    # Load CSV
+    df = pd.read_csv(csv_file, parse_dates=['timestamp'])
+    
+    plt.figure(figsize=(10, 6))
+    
+    for sensor in sensors:
+        # Filter data for this sensor
+        sensor_data = df[df['client_address'] == sensor]
+        plt.plot(sensor_data['timestamp'], sensor_data[value_col], marker='o', label=f'Client {sensor}')
+    
+    plt.xlabel('Time')
+    plt.ylabel(value_col)
+    plt.title(f'{value_col} over time for sensors {sensors}')
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
 

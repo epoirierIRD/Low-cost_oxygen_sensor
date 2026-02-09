@@ -75,7 +75,7 @@ Connecting the probe and receiving data using modbus protocol and linux machine.
     -d 8: Sets data bits to 8.
     -P none: No parity.
     /dev/ttyUSB0: Specifies the serial port.
-```
+
 
 ## 17/12/2024, mbpoll getting reading single register, device ID successfull
 If you want to get the ID number of your device which accordinf to the manual is at the adress 0x2000 (42001), first step is to convert 0x2000 form hexadcimal to decimal:
@@ -483,7 +483,17 @@ The key is to provide 12V power to the DFRobot module
 Notice that there is no need to plug the master at the one end terminus of the splitter.
 - coming soon, test with jonathan to achievve stable DO levels using nitrogen gas
     
-    
+## 09/02/2026, Updated library
+
+- Created library seeedpy_rd.py that gathers the reading function to call the registers of the probes
+based on Jonathan code
+- Added functions to call multiple probes and log in the same file
+- Added library seeedpy_plt.py to plot the results from our tests.
+
+**Coming next:**
+
+- Test to be done with jonathan: achieve stable levels of DO with nitrogen, build
+correct polynomila correction and check if this is conservative over time
 
   
 

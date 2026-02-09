@@ -169,6 +169,8 @@ def set_baudrate(baudrate):
 	sleep(1)
 	print(client1.read_registers(8195, 1))
 	
+# %% TEST THE FUNCTIONS
+
 #set_baudrate(9600)
 	
 #reset_sensor()
@@ -189,7 +191,7 @@ def set_baudrate(baudrate):
 #sleep(1)
 
 
-
+# %% RUN THE CODE TO LOG IN A FILE
 while True : 
 	sens_values = read_sensor()  # Registernumber, number of decimals
 	print(format_oxy_sens_values(correct_oxy_sens_values(sens_values)))
